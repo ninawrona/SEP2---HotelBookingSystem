@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox fx:controller="View.ReservationController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ReservationController">
    <children>
       <Label alignment="CENTER" prefHeight="97.0" prefWidth="601.0" text="Pick a date">
          <font>
@@ -36,7 +35,7 @@
       </Label>
       <HBox alignment="CENTER" prefHeight="212.0" prefWidth="600.0">
          <children>
-            <ListView prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="availableRoom" prefHeight="200.0" prefWidth="200.0" />
          </children>
       </HBox>
       <HBox alignment="TOP_CENTER" prefHeight="13.0" prefWidth="600.0">
