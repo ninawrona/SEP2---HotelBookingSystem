@@ -1,6 +1,5 @@
 package viewModel;
 
-import Model.Model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -27,12 +26,8 @@ public class GuestInformationViewModel {
     }
 
     public String createGuest() {
-       /* return model.createGuest(firstNameField.getValue(), lastNameField.getValue(),
+        return model.createGuest(firstNameField.getValue(), lastNameField.getValue(),
                 emailField.getValue(), phoneNumberField.getValue());
-
-
-        */
-        return null;
     }
 
     public StringProperty getFirstNameField() {

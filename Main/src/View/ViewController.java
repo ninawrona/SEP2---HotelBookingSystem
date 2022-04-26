@@ -9,20 +9,20 @@ import java.rmi.RemoteException;
 public abstract class ViewController {
     private Region root;
     private ViewHandler viewHandler;
-    private ViewModelFactory viewModelFactory;
+    ViewModelFactory viewModelFactory;
 
-    protected abstract void init();
+
+    public abstract void init();
+
+    public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory, Region root) throws RemoteException {
+        this.viewHandler = viewHandler;
+        this.viewModelFactory = viewModelFactory;
+        this.root = root;
+    }
 
     public abstract void reset();
 
-    public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory, Region root) throws RemoteException {
-        this.root = root;
-        this.viewHandler = viewHandler;
-        this.viewModelFactory = viewModelFactory;
-        init();
-    }
-
-    public Region getRoot() {
+    public Region getRoot(){
         return root;
     }
 
@@ -30,7 +30,7 @@ public abstract class ViewController {
         return viewModelFactory;
     }
 
-    public ViewHandler getViewHandler() {
+    public ViewHandler getViewHandler(){
         return viewHandler;
     }
 }

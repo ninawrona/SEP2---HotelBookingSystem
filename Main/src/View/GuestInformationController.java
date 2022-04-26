@@ -6,9 +6,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import viewModel.GuestInformationViewModel;
 import viewModel.ReservationViewModel;
-import viewModel.ViewModelFactory;
 
-import java.io.IOException;
 import java.rmi.RemoteException;
 
 public class GuestInformationController extends ViewController
@@ -20,8 +18,6 @@ public class GuestInformationController extends ViewController
     public Label errorLabel;
     private GuestInformationViewModel viewModel;
     private Region root;
-    private ViewHandler viewHandler;
-    private ViewModelFactory viewModelFactory;
 
     @Override
     public void init() {
@@ -29,7 +25,7 @@ public class GuestInformationController extends ViewController
     }
 
     public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory, Region root)
-    {
+            throws RemoteException {
         this.viewHandler = viewHandler;
         this.viewModelFactory = viewModelFactory;
         this.viewModel = viewModelFactory.getGuestInformationViewModel();
@@ -46,18 +42,14 @@ public class GuestInformationController extends ViewController
 
     @Override
     public void reset() {
-        //viewModel.clear();
+        viewModel.clear();
     }
 
     public void confirmButton(ActionEvent actionEvent) {
         String possibleErrorMessage = viewModel.createGuest();
         if (possibleErrorMessage.equals("Success")) {
             // Go to next window
-            try {
-                viewHandler.openView("GuestInformationView.fxml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            // viewHandler.openView(".fxml");
         } else {
             errorLabel.setText(possibleErrorMessage);
         }
