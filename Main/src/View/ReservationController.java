@@ -9,12 +9,19 @@ import javafx.scene.layout.Region;
 import viewModel.ReservationViewModel;
 import java.rmi.RemoteException;
 
-public class ReservationController {
+public class ReservationController extends ViewController{
     @FXML private DatePicker startDate;
     @FXML private DatePicker endDate;
     @FXML private Label errorLabel;
     @FXML private ListView<String> availableRoom;
     private ReservationViewModel viewModel;
+    private Region root;
+    private ViewHandler viewHandler;
+
+    @Override
+    public void init() {
+
+    }
 
     public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory, Region root)
             throws RemoteException
@@ -30,6 +37,11 @@ public class ReservationController {
         startDate.valueProperty().bindBidirectional(viewModel.getStartDatePicker());
         endDate.valueProperty().bindBidirectional(viewModel.getEndDatePicker());
         errorLabel.textProperty().bind(viewModel.getErrorLabel());
+    }
+
+    @Override
+    public void reset() {
+        viewModel.clear();
     }
 
     public void lookForAvailableRooms(ActionEvent actionEvent) {

@@ -9,13 +9,20 @@ import viewModel.ReservationViewModel;
 
 import java.rmi.RemoteException;
 
-public class GuestInformationController {
+public class GuestInformationController extends ViewController
+{
     public TextField firstNameField;
     public TextField lastNameField;
     public TextField emailField;
     public TextField phoneNumberField;
     public Label errorLabel;
     private GuestInformationViewModel viewModel;
+    private Region root;
+
+    @Override
+    public void init() {
+
+    }
 
     public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory, Region root)
             throws RemoteException {
@@ -31,6 +38,11 @@ public class GuestInformationController {
         emailField.textProperty().bind(viewModel.getEmailField());
         phoneNumberField.textProperty().bind(viewModel.getPhoneNumberField());
         errorLabel.textProperty().bind(viewModel.getErrorLabel());
+    }
+
+    @Override
+    public void reset() {
+        viewModel.clear();
     }
 
     public void confirmButton(ActionEvent actionEvent) {
