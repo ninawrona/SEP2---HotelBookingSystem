@@ -15,9 +15,9 @@ public abstract class ViewController {
     public abstract void init();
 
     public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory, Region root) throws RemoteException {
+        this.root = root;
         this.viewHandler = viewHandler;
         this.viewModelFactory = viewModelFactory;
-        this.root = root;
     }
 
     public abstract void reset();

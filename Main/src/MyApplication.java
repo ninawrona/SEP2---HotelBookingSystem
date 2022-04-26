@@ -1,8 +1,8 @@
-import Model.Model;
 import View.ViewHandler;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import Model.ModelManager;
+import model.Model;
+import model.ModelManager;
 import viewModel.ViewModelFactory;
 
 

@@ -40,7 +40,7 @@ public abstract class ViewCreator {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource(txtFile));
             Region root = loader.load();
-            //System.out.println("Root in loadFromFXML: " + root);
+            System.out.println("Root in loadFromFXML: " + root);
             controller = loader.getController();
             initViewController(controller, root);
 

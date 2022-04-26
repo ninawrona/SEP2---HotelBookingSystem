@@ -2,14 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32ca0a81-cf8a-42b8-819d-8c63f3cc522b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/Main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/src/model/Guest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/model/Guest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/src/model/ModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/model/ModelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/src/model/RoomList.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/model/RoomList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/src/viewModel/GuestInformationViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/viewModel/GuestInformationViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/src/viewModel/ReservationViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/viewModel/ReservationViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/src/viewModel/TemporaryInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/viewModel/TemporaryInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/Model/Guest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/model/Guest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/Model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/Model/ModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/model/ModelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/Model/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/model/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/Model/RoomBooking.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/model/RoomBooking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/Model/RoomBookingList.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/model/RoomBookingList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/Model/RoomList.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/model/RoomList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/MyApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/View/GuestInformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/View/GuestInformationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/View/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/View/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/View/ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/View/ViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/View/ViewCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/View/ViewCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/View/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/View/ViewHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/viewModel/ViewModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/viewModel/ViewModelFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,8 +56,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="jdk.selected.JAVA_MODULE" value="11" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/SDJ/00LIBRARIES/javafx-sdk-17.0.1/lib" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/VIA/1SEM/JAVA1/JAVA/openjfx-17.0.1_windows-x64_bin-sdk/javafx-sdk-17.0.1/lib/javafx-swt.jar" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2712975" />
   </component>
@@ -62,6 +70,13 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="Run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Run" />
+      <module name="Main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -73,6 +88,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Run" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -109,10 +129,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SEP2___HotelBookingSystem$ViewHandler.ic" NAME="ViewHandler Coverage Results" MODIFIED="1650966579596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SEP2___HotelBookingSystem$Run.ic" NAME="Run Coverage Results" MODIFIED="1650976633695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SEP2___HotelBookingSystem$MyApplication.ic" NAME="MyApplication Coverage Results" MODIFIED="1650967841362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>View.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SEP2___HotelBookingSystem$MyApplication.ic" NAME="MyApplication Coverage Results" MODIFIED="1650967841362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SEP2___HotelBookingSystem$ViewHandler.ic" NAME="ViewHandler Coverage Results" MODIFIED="1650966579596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>View.*</FILTER>
     </SUITE>
   </component>

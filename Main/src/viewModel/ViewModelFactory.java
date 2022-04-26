@@ -1,6 +1,6 @@
 package viewModel;
 
-import Model.Model;
+import model.Model;
 
 public class ViewModelFactory {
 
