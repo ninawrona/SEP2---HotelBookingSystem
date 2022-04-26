@@ -24,7 +24,7 @@ public class ReservationViewModel {
     private SimpleStringProperty errorLabel;
     private TemporaryInformation temp;
 
-    public ReservationViewModel(Model model,TemporaryInformation tempInfo) {
+    public ReservationViewModel(Model model, TemporaryInformation tempInfo) {
         this.model = model;
         this.availableRooms = FXCollections.observableArrayList();
         startDatePicker = new SimpleObjectProperty<>();
@@ -34,21 +34,24 @@ public class ReservationViewModel {
     }
 
     public void getAllAvailableRooms() {
-        ArrayList<Room> newRooms = model.availableRooms(dateFromDatePicker(startDatePicker.getValue().toString()),
-                dateFromDatePicker(endDatePicker.getValue().toString()));
+        ArrayList<Room> newRooms;
+        try {
+            newRooms = model.availableRooms(dateFromDatePicker(startDatePicker.getValue().toString()),
+                    dateFromDatePicker(endDatePicker.getValue().toString()));
 
-        // Clear old values
-        availableRooms.clear();
+            availableRooms.clear(); // Clear old rooms
 
-        // Add new rooms with selected date to the list
-        for (int i = 0; i < newRooms.size(); i++) {
-            availableRooms.add(newRooms.get(i).getRoomId());
+            // Add new rooms with selected date to the list
+            for (int i = 0; i < newRooms.size(); i++) {
+                availableRooms.add(newRooms.get(i).getRoomId());
+            }
+        } catch (Exception e) {
+            errorLabel.setValue("Choose start/end dates");
         }
     }
 
     // Puts reserved room data to TemporaryInformation
     public void reserveRoom(String roomName) {
-
         temp.setStartDate(dateFromDatePicker(startDatePicker.getValue().toString()));
         temp.setEndDate(dateFromDatePicker(endDatePicker.getValue().toString()));
         temp.setRoomID(roomName);
@@ -63,9 +66,7 @@ public class ReservationViewModel {
         return LocalDate.of(year, month, day);
     }
 
-
-    // Init ListView
-    public ObservableList<String> getRooms() throws RemoteException {
+    public ObservableList<String> getRooms()  {
         return availableRooms;
     }
 
