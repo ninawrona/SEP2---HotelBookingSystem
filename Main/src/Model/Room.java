@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 public class Room
 {
@@ -12,5 +12,11 @@ public class Room
   public String getRoomId()
   {
     return roomId;
+  }
+
+  public Room copy()
+  {
+    Room other = new Room(roomId);
+    return other;
   }
 }

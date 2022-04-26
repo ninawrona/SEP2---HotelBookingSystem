@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 public class Guest
 {
@@ -39,5 +39,11 @@ public class Guest
   {
     return "Guest: " + '\'' + "First Name: '" + fName + '\'' + "Last Name: " + lName + '\''
         + "Email address: " + email + '\'' + "Phone Nr: " + phoneNr;
+  }
+
+  public Guest copy()
+  {
+    Guest other = new Guest(fName, lName, email, phoneNr);
+    return other;
   }
 }

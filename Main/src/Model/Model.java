@@ -1,9 +1,10 @@
-package Model;
+package model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public interface Model
 {
-  int availableRooms(LocalDate startDate, LocalDate endDate);
+  ArrayList<Room> availableRooms(LocalDate startDate, LocalDate endDate);
   void book(String roomId, LocalDate startDate, LocalDate endDate, Guest guest);
 }

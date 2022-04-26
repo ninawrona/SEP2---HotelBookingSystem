@@ -1,10 +1,9 @@
-package Model;
+package model;
 
 import java.util.ArrayList;
 
 public class RoomList
 {
-  private Room room;
   private ArrayList<Room> roomList;
 
   RoomList()
@@ -17,5 +16,25 @@ public class RoomList
     return roomList;
   }
 
+  public void addRoom (Room room)
+  {
+    roomList.add(room);
+  }
 
+  public Room getRoom(String roomID)
+  {
+    for (int i = 0; i < roomList.size(); i++)
+    {
+      if (roomList.get(i).getRoomId().equals(roomID))
+      {
+        return roomList.get(i);
+      }
+    }
+    return null;
+  }
+
+  public int getRoomListSize()
+  {
+    return roomList.size();
+  }
 }
