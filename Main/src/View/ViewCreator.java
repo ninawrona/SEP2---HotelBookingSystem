@@ -5,6 +5,7 @@ import javafx.scene.layout.Region;
 
 import javax.swing.text.View;
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,6 +55,6 @@ public abstract class ViewCreator {
         return controller;
     }
 
-    protected abstract void initViewController(ViewController viewController, Region root);
+    protected abstract void initViewController(ViewController viewController, Region root) throws RemoteException;
 
 }

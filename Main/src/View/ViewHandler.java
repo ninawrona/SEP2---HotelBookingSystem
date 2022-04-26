@@ -3,8 +3,10 @@ package View;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import viewModel.ViewModelFactory;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 
 public class ViewHandler extends ViewCreator{
@@ -42,7 +44,7 @@ public class ViewHandler extends ViewCreator{
     }
 
     @Override
-    protected void initViewController(ViewController viewController, Region root) {
+    protected void initViewController(ViewController viewController, Region root) throws RemoteException {
         viewController.init(this, viewModelFactory, root);
     }
 
