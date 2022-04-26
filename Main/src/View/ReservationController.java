@@ -11,7 +11,12 @@ import viewModel.ViewModelFactory;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
-
+/**
+ * A class creating an ReservationController object.
+ *
+ * @author
+ * @version 26/04/2022
+ */
 public class ReservationController extends ViewController{
     @FXML private DatePicker startDate;
     @FXML private DatePicker endDate;
@@ -21,9 +26,19 @@ public class ReservationController extends ViewController{
     private Region root;
     private ViewHandler viewHandler;
 
+    /**
+     * A none argument, void method initializing instance variables.
+     */
     @Override
     public void init() {}
 
+    /**
+     * A void method initializing instance variables.
+     *
+     * @param viewHandler A ViewHandler object which will be used to set the instance variable.
+     * @param viewModelFactory  A ViewModelFactory object which will be used to set the instance variable.
+     * @param root        A Region object which will be used to set the instance variable.
+     */
     public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory, Region root)
             throws RemoteException
     {
@@ -40,20 +55,34 @@ public class ReservationController extends ViewController{
         errorLabel.textProperty().bind(viewModel.getErrorLabel());
     }
 
+    /**
+     * A getter method returning the Region object.
+     *
+     * @return A Region object called root.
+     */
     public Region getRoot(){
         return root;
     }
 
+    //todo
     @Override
     public void reset() {
         //viewModel.clear();
     }
 
-    public void lookForAvailableRooms(ActionEvent actionEvent) {
+    /**
+     * A void method that looks for available rooms.
+     */
+
+    public void lookForAvailableRooms() {
         viewModel.getAllAvailableRooms();
     }
 
-    public void reservationButton(ActionEvent actionEvent) throws IOException {
+    /**
+     * A void method closing opening the GuestInformation view.
+     */
+
+    public void reservationButton() throws IOException {
         String selectedRoomFromListView = availableRoom.getSelectionModel().getSelectedItem();
         viewModel.reserveRoom(selectedRoomFromListView);
         viewHandler.openView("GuestInformationView.fxml");
