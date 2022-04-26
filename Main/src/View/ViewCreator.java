@@ -14,22 +14,23 @@ public abstract class ViewCreator {
     private Map<String, ViewController> controllers;
 
     public ViewCreator(){
-        controllers = new HashMap<String, ViewController>();
+        controllers = new HashMap<>();
     }
 
     public ViewController getViewController(String id) throws IOException {
+
+
         ViewController controller = controllers.get(id);
         if(controller == null){
             controller = loadFromFXML(id);
-            System.out.println("Controller loaded from: " + controller);
-            System.out.println("root: " + controller.getRoot());
+            System.out.println("controller loaded from fxml:" + controller);
+            System.out.println("+ root" + controller.getRoot());
             controllers.put(id, controller);
         }
         else{
             controller.reset();
         }
-
-        System.out.println("Controller after if statement: " + controller);
+        System.out.println(controller +" : after the if statement");
         System.out.println(controller.getRoot() + " - this is the root");
         return controller;
     }
@@ -40,18 +41,18 @@ public abstract class ViewCreator {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource(txtFile));
             Region root = loader.load();
-            //System.out.println("Root in loadFromFXML: " + root);
+            System.out.println(root + " - root");
             controller = loader.getController();
             initViewController(controller, root);
 
-            System.out.println("Root in loadFromFXML after initializing: " + root);
-            if (controller == null){
+            System.out.println(controller.getRoot() + ": from load from fxml");
+            if(controller == null){
                 throw new Exception("controller == null");
             }
-        }catch (Exception e){
+
+        }catch(Exception e){
             e.printStackTrace();
         }
-
         return controller;
     }
 

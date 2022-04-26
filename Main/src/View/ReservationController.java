@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import viewModel.ReservationViewModel;
+import viewModel.ViewModelFactory;
+
 import java.rmi.RemoteException;
 
 public class ReservationController extends ViewController{
@@ -17,15 +19,14 @@ public class ReservationController extends ViewController{
     private ReservationViewModel viewModel;
     private Region root;
     private ViewHandler viewHandler;
+    private ViewModelFactory viewModelFactory;
 
     @Override
     public void init() {
 
     }
 
-    public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory, Region root)
-            throws RemoteException
-    {
+    public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory, Region root) throws RemoteException {
         this.viewHandler = viewHandler;
         this.viewModelFactory = viewModelFactory;
         this.viewModel = viewModelFactory.getReservationViewModel();
@@ -41,7 +42,7 @@ public class ReservationController extends ViewController{
 
     @Override
     public void reset() {
-        viewModel.clear();
+        //viewModel.clear();
     }
 
     public void lookForAvailableRooms(ActionEvent actionEvent) {

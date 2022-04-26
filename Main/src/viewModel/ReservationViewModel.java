@@ -1,12 +1,11 @@
 package viewModel;
 
+import Model.Model;
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.DatePicker;
 
 import java.rmi.RemoteException;
 import java.time.LocalDate;
@@ -28,7 +27,7 @@ public class ReservationViewModel {
     }
 
     public void getAllAvailableRooms() {
-        RoomList roomList = model.avaliableRooms(dateFromDatePicker(startDatePicker.getValue().toString()),
+       /* RoomList roomList = model.avaliableRooms(dateFromDatePicker(startDatePicker.getValue().toString()),
                 dateFromDatePicker(endDatePicker.getValue().toString()));
 
         // Clear old values
@@ -36,14 +35,14 @@ public class ReservationViewModel {
 
         // Add new rooms with selected date to the list
         for (int i = 0; i < roomList.size(); i++) {
-            availableRooms.add(roomList.getRoom(i).getId());
-        }
+            availableRooms.add(String.valueOf(roomList.getRoom(i).getId()));
+        }*/
     }
 
     public void reserveRoom(String roomName) {
         // todo In this window we don't have "Guest"
-        model.book(roomName, dateFromDatePicker(startDatePicker.getValue().toString()),
-                dateFromDatePicker(endDatePicker.getValue().toString()));
+       // model.book(roomName, dateFromDatePicker(startDatePicker.getValue().toString()),
+         //       dateFromDatePicker(endDatePicker.getValue().toString()));
     }
 
     private LocalDate dateFromDatePicker(String datePicker) {
