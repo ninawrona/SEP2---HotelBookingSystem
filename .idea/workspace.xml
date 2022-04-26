@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32ca0a81-cf8a-42b8-819d-8c63f3cc522b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Main/src/MyApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Main/src/Run.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/Main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/model/Guest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/model/Guest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/model/ModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/model/ModelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/model/RoomList.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/model/RoomList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/viewModel/GuestInformationViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/viewModel/GuestInformationViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/viewModel/ReservationViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/viewModel/ReservationViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/viewModel/TemporaryInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/viewModel/TemporaryInformation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,13 +48,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="jdk.selected.JAVA_MODULE" value="11" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Main/src" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/SDJ/00LIBRARIES/javafx-sdk-17.0.1/lib" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2712975" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\justi\OneDrive\Documents\GitHub\SEP2---HotelBookingSystem\Main\src" />
       <recent name="C:\Users\Nina\Documents\GitHub\SEP2---HotelBookingSystem\Main\src" />
       <recent name="C:\Users\Nina\Documents\GitHub\SEP2---HotelBookingSystem\Main\src\View" />
       <recent name="C:\Users\Nina\Documents\GitHub\SEP2---HotelBookingSystem\General (to delete)\src\View" />
@@ -102,10 +109,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SEP2___HotelBookingSystem$MyApplication.ic" NAME="MyApplication Coverage Results" MODIFIED="1650967841362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SEP2___HotelBookingSystem$ViewHandler.ic" NAME="ViewHandler Coverage Results" MODIFIED="1650966579596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>View.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SEP2___HotelBookingSystem$ViewHandler.ic" NAME="ViewHandler Coverage Results" MODIFIED="1650966579596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/SEP2___HotelBookingSystem$MyApplication.ic" NAME="MyApplication Coverage Results" MODIFIED="1650967841362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>View.*</FILTER>
     </SUITE>
   </component>

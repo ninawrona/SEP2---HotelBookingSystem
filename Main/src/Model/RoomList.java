@@ -33,6 +33,11 @@ public class RoomList
     return null;
   }
 
+  public Room getRoomByNr(int index)
+  {
+    return roomList.get(index);
+  }
+
   public int getRoomListSize()
   {
     return roomList.size();

@@ -7,7 +7,7 @@ public class Guest
   private String email;
   private int phoneNr;
 
-  Guest(String fName, String lName, String email, int phoneNr)
+  public Guest(String fName, String lName, String email, int phoneNr)
   {
     this.fName = fName;
     this.lName = lName;

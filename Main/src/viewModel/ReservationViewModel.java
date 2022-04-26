@@ -7,9 +7,13 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.DatePicker;
+import model.Model;
+import model.Room;
+import model.RoomList;
 
 import java.rmi.RemoteException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class ReservationViewModel {
 
@@ -18,6 +22,7 @@ public class ReservationViewModel {
     private ObjectProperty<LocalDate> startDatePicker;
     private ObjectProperty<LocalDate> endDatePicker;
     private SimpleStringProperty errorLabel;
+    private TemporaryInformation temp;
 
     public ReservationViewModel(Model model) {
         this.model = model;
@@ -25,25 +30,28 @@ public class ReservationViewModel {
         startDatePicker = new SimpleObjectProperty<>();
         endDatePicker = new SimpleObjectProperty<>();
         this.errorLabel = new SimpleStringProperty("");
+        this.temp = new TemporaryInformation();
     }
 
     public void getAllAvailableRooms() {
-        RoomList roomList = model.avaliableRooms(dateFromDatePicker(startDatePicker.getValue().toString()),
+        ArrayList<Room> newRooms = model.availableRooms(dateFromDatePicker(startDatePicker.getValue().toString()),
                 dateFromDatePicker(endDatePicker.getValue().toString()));
 
         // Clear old values
         availableRooms.clear();
 
         // Add new rooms with selected date to the list
-        for (int i = 0; i < roomList.size(); i++) {
-            availableRooms.add(roomList.getRoom(i).getId());
+        for (int i = 0; i < newRooms.size(); i++) {
+            availableRooms.add(newRooms.get(i).getRoomId());
         }
     }
 
     public void reserveRoom(String roomName) {
+
+        temp.setStartDate(dateFromDatePicker(startDatePicker.getValue().toString()));
+        temp.setEndDate(dateFromDatePicker(endDatePicker.getValue().toString()));
+        temp.setRoomID(roomName);
         // todo In this window we don't have "Guest"
-        model.book(roomName, dateFromDatePicker(startDatePicker.getValue().toString()),
-                dateFromDatePicker(endDatePicker.getValue().toString()));
     }
 
     private LocalDate dateFromDatePicker(String datePicker) {

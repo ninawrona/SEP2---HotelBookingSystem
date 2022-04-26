@@ -6,6 +6,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import model.Guest;
+import model.Model;
 
 public class GuestInformationViewModel {
 
@@ -15,6 +17,7 @@ public class GuestInformationViewModel {
     private StringProperty emailField;
     private StringProperty phoneNumberField;
     private StringProperty errorLabel;
+    private TemporaryInformation temp;
 
     public GuestInformationViewModel(Model model) {
         this.model = model;
@@ -23,11 +26,14 @@ public class GuestInformationViewModel {
         this.emailField = new SimpleStringProperty();
         this.phoneNumberField = new SimpleStringProperty();
         this.errorLabel = new SimpleStringProperty();
+        this.temp = new TemporaryInformation();
     }
 
-    public String createGuest() {
-        return model.createGuest(firstNameField.getValue(), lastNameField.getValue(),
-                emailField.getValue(), phoneNumberField.getValue());
+    public void bookRoomWithGuest() {
+        model.book(temp.getRoomID(), temp.getStartDate(), temp.getEndDate(), new Guest(
+            firstNameField.getValue(), lastNameField.getValue(),
+            emailField.getValue(),Integer.parseInt(phoneNumberField.getValue()))
+        );
     }
 
     public StringProperty getFirstNameField() {
