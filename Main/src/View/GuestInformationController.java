@@ -5,14 +5,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import viewModel.GuestInformationViewModel;
-import viewModel.ReservationViewModel;
 import viewModel.ViewModelFactory;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 
 public class GuestInformationController extends ViewController
 {
-    public TextField firstNameField;
+    public TextField firstNameFields;
     public TextField lastNameField;
     public TextField emailField;
     public TextField phoneNumberField;
@@ -36,11 +36,11 @@ public class GuestInformationController extends ViewController
         init();
 
         // Binding
-        firstNameField.textProperty().bind(viewModel.getFirstNameField());
-        lastNameField.textProperty().bind(viewModel.getLastNameField());
-        emailField.textProperty().bind(viewModel.getEmailField());
-        phoneNumberField.textProperty().bind(viewModel.getPhoneNumberField());
-        errorLabel.textProperty().bind(viewModel.getErrorLabel());
+        firstNameFields.textProperty().bindBidirectional(viewModel.getFirstNameField());
+        lastNameField.textProperty().bindBidirectional(viewModel.getLastNameField());
+        emailField.textProperty().bindBidirectional(viewModel.getEmailField());
+        phoneNumberField.textProperty().bindBidirectional(viewModel.getPhoneNumberField());
+        errorLabel.textProperty().bindBidirectional(viewModel.getErrorLabel());
     }
 
     public Region getRoot(){
@@ -53,14 +53,10 @@ public class GuestInformationController extends ViewController
     }
 
     public void confirmButton(ActionEvent actionEvent) {
-        /*String possibleErrorMessage = viewModel.createGuest();
-        if (possibleErrorMessage.equals("Success")) {
-            // Go to next window
-            // viewHandler.openView(".fxml");
-        } else {
-            errorLabel.setText(possibleErrorMessage);
-        }
+        viewModel.bookRoomWithGuest();
+    }
 
-         */
+    public void goBack() throws IOException {
+        viewHandler.openView("ReservationView.fxml");
     }
 }

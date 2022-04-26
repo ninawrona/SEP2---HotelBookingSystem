@@ -24,13 +24,13 @@ public class ReservationViewModel {
     private SimpleStringProperty errorLabel;
     private TemporaryInformation temp;
 
-    public ReservationViewModel(Model model) {
+    public ReservationViewModel(Model model,TemporaryInformation tempInfo) {
         this.model = model;
         this.availableRooms = FXCollections.observableArrayList();
         startDatePicker = new SimpleObjectProperty<>();
         endDatePicker = new SimpleObjectProperty<>();
         this.errorLabel = new SimpleStringProperty("");
-        this.temp = new TemporaryInformation();
+        this.temp = tempInfo;
     }
 
     public void getAllAvailableRooms() {
@@ -46,12 +46,12 @@ public class ReservationViewModel {
         }
     }
 
+    // Puts reserved room data to TemporaryInformation
     public void reserveRoom(String roomName) {
 
         temp.setStartDate(dateFromDatePicker(startDatePicker.getValue().toString()));
         temp.setEndDate(dateFromDatePicker(endDatePicker.getValue().toString()));
         temp.setRoomID(roomName);
-        // todo In this window we don't have "Guest"
     }
 
     private LocalDate dateFromDatePicker(String datePicker) {

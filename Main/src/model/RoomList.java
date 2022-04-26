@@ -9,12 +9,34 @@ public class RoomList
   RoomList()
   {
     this.roomList = new ArrayList<>();
+    createDummyData();
+  }
+
+  public void createDummyData()
+  {
+    addRoom(new Room("1-lux-room"));
+    addRoom(new Room("2-room"));
+    addRoom(new Room("3-super-lux-room"));
+    addRoom(new Room("4-super-max-lux-room"));
   }
 
   public ArrayList<Room> getRoomList()
   {
-    return roomList;
+    return new ArrayList<Room>(roomList);
   }
+
+
+//  public void removeRoomById(String id)
+//  {
+//    for (int i = 0; i<roomList.size(); i++)
+//    {
+//      if (roomList.get(i).getRoomId().equals(id))
+//      {
+//        roomList.remove(i);
+//        return;
+//      }
+//    }
+//  }
 
   public void addRoom (Room room)
   {

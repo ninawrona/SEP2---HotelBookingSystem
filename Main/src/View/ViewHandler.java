@@ -4,7 +4,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import viewModel.ViewModelFactory;
-
 import java.io.IOException;
 import java.rmi.RemoteException;
 
@@ -29,7 +28,6 @@ public class ViewHandler extends ViewCreator{
 
     public void openView(String id) throws IOException {
         Region root = getViewController(id).getRoot();
-        System.out.println(root + " root in openView...");
 
         currentScene.setRoot(root);
         String title = "";
@@ -46,7 +44,6 @@ public class ViewHandler extends ViewCreator{
 
     @Override
     protected void initViewController(ViewController viewController, Region root) throws RemoteException {
-        System.out.println("In viewHandler root: " + root);
         viewController.init(this, viewModelFactory, root);
     }
 
