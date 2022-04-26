@@ -8,6 +8,12 @@ import viewModel.ViewModelFactory;
 import java.io.IOException;
 import java.rmi.RemoteException;
 
+/**
+ * A class handling all the occurring views in the system.
+ *
+ * @author
+ * @version 26/04/2022
+ */
 
 public class ViewHandler extends ViewCreator{
 
@@ -15,10 +21,20 @@ public class ViewHandler extends ViewCreator{
     private Stage primaryStage;
     private ViewModelFactory viewModelFactory;
 
+    /**
+     * A one argument constructor intializing ViewModelFactory object.
+     *
+     * @param viewModelFactory A ViewModelFactory object which is used to set ViewHandler's viewModelFactory instance variable.
+     */
     public ViewHandler(ViewModelFactory viewModelFactory){
         this.viewModelFactory = viewModelFactory;
     }
 
+    /**
+     * A void method starting the system and setting the primary stage variable to given primaryStage,
+     * setting a currentScene variable and calling the openView(String id) method.
+     * @param primaryStage a Stage object which is used to set ViewHandler's primaryStage variable.
+     */
     public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
         this.currentScene = new Scene(new Region());
@@ -27,6 +43,12 @@ public class ViewHandler extends ViewCreator{
 
     }
 
+    /**
+     * A void method searching for a controller with a
+     *  with the given id and opening the view.
+     *
+     * @param id a String object used to create or find a specific ViewController object.
+     */
     public void openView(String id) throws IOException {
         Region root = getViewController(id).getRoot();
         System.out.println(root + " root in openView...");
@@ -44,6 +66,13 @@ public class ViewHandler extends ViewCreator{
         primaryStage.show();
     }
 
+
+    /**
+     * A void method that refers to initializing method in ViewController object.
+     *
+     * @param viewController A ViewController object which is being initialized
+     * @param root A Region object which sets the Region object in ViewController
+     */
     @Override
     protected void initViewController(ViewController viewController, Region root) throws RemoteException {
         System.out.println("In viewHandler root: " + root);
