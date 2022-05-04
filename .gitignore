@@ -1,4 +1,4 @@
 *.lock
 *.iml
 *.class
-.idea/workspace.xml
+.idea/*
