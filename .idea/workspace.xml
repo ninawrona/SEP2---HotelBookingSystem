@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="32ca0a81-cf8a-42b8-819d-8c63f3cc522b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/src/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/src/model/ModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/model/ModelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/src/viewModel/GuestInformationViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/viewModel/GuestInformationViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/src/viewModel/ReservationViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/viewModel/ReservationViewModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +97,9 @@
       <workItem from="1650887472080" duration="12231000" />
       <workItem from="1650977645063" duration="400000" />
       <workItem from="1650978122319" duration="326000" />
-      <workItem from="1650984033975" duration="20281000" />
+      <workItem from="1650984033975" duration="21206000" />
+      <workItem from="1651045039653" duration="34000" />
+      <workItem from="1651066905195" duration="34000" />
     </task>
     <servers />
   </component>
