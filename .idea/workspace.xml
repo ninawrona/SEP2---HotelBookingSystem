@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="32ca0a81-cf8a-42b8-819d-8c63f3cc522b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/General (to delete)/production/Main/View/GuestInformationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/General (to delete)/production/Main/View/GuestInformationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/General (to delete)/production/Main/View/ReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/General (to delete)/production/Main/View/ReservationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/General (to delete)/production/Main/View/ViewHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/General (to delete)/production/Main/View/ViewHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/General (to delete)/production/Main/viewModel/ReservationViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/General (to delete)/production/Main/viewModel/ReservationViewModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/src/viewModel/GuestInformationViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/viewModel/GuestInformationViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/src/viewModel/ReservationViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/viewModel/ReservationViewModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +106,8 @@
       <workItem from="1651654196675" duration="4000" />
       <workItem from="1651655072655" duration="23000" />
       <workItem from="1651655846031" duration="571000" />
-      <workItem from="1651673679941" duration="1801000" />
+      <workItem from="1651673679941" duration="2034000" />
+      <workItem from="1651675746275" duration="574000" />
     </task>
     <servers />
   </component>
