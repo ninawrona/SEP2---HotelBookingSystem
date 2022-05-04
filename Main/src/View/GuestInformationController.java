@@ -84,7 +84,16 @@ public class GuestInformationController extends ViewController
      * for currently running booking.
      */
     public void confirmButton() {
-        viewModel.bookRoomWithGuest();
+        try
+        {
+            viewModel.bookRoomWithGuest();
+        }
+
+        catch (Exception e)
+        {
+            errorLabel.textProperty().set(e.getMessage());
+        }
+
     }
 
     /**

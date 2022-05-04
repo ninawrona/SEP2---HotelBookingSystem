@@ -23,10 +23,11 @@ public class RoomList
 
   public void createDummyData()
   {
-    addRoom(new Room("1-lux-room"));
-    addRoom(new Room("2-room"));
-    addRoom(new Room("3-super-lux-room"));
-    addRoom(new Room("4-super-max-lux-room"));
+    addRoom(new Room("1.01"));
+    addRoom(new Room("1.02"));
+    addRoom(new Room("1.03"));
+    addRoom(new Room("1.04"));
+    addRoom(new Room("1.05"));
   }
 
   /**
