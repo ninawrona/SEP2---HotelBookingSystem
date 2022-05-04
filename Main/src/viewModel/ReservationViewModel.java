@@ -15,6 +15,12 @@ import java.rmi.RemoteException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ * A class providing functionality for ReservationViewController.
+ *
+ * @version 04/05/2022
+ */
+
 public class ReservationViewModel {
 
     private Model model;
@@ -24,6 +30,13 @@ public class ReservationViewModel {
     private SimpleStringProperty errorLabel;
     private TemporaryInformation temp;
 
+
+    /**
+     * Constructor initializing instance variables.
+     *
+     * @param model    model interface
+     * @param tempInfo shared object with GuestInformationViewModel to store selected room
+     */
     public ReservationViewModel(Model model, TemporaryInformation tempInfo) {
         this.model = model;
         this.availableRooms = FXCollections.observableArrayList();
@@ -33,32 +46,53 @@ public class ReservationViewModel {
         this.temp = tempInfo;
     }
 
+    /**
+     * Gets all available rooms within selected date interval from model,
+     * calls displayRoomInListView method with received data.
+     */
     public void getAllAvailableRooms() {
-        ArrayList<Room> newRooms;
+        displayRoomsInListView(model.availableRooms(dateFromDatePicker(startDatePicker.getValue().toString()),
+                dateFromDatePicker(endDatePicker.getValue().toString())));
+    }
+
+    /**
+     * Clears old values from ObservableList of availableRooms,
+     * puts all received values to the list of availableRooms.
+     *
+     * @param rooms rooms to display in ListView
+     */
+    public void displayRoomsInListView(ArrayList<Room> rooms) {
+        availableRooms.clear();
         try {
-            newRooms = model.availableRooms(dateFromDatePicker(startDatePicker.getValue().toString()),
-                    dateFromDatePicker(endDatePicker.getValue().toString()));
-
-            availableRooms.clear(); // Clear old rooms
-
-            // Add new rooms with selected date to the list
-            for (int i = 0; i < newRooms.size(); i++) {
-                availableRooms.add(newRooms.get(i).getRoomId());
+            for (int i = 0; i < rooms.size(); i++) {
+                availableRooms.add(rooms.get(i).getRoomId());
             }
         } catch (Exception e) {
             errorLabel.setValue("Choose start/end dates");
         }
     }
 
-    // Puts reserved room data to TemporaryInformation
+    /**
+     * Sets new values for TemporaryInformation object for:
+     * startDate value received from startDatePicker,
+     * endDate value received from endDatePicker,
+     * roomID value received from argument
+     *
+     * @param roomName selected room ID
+     */
     public void reserveRoom(String roomName) {
         temp.setStartDate(dateFromDatePicker(startDatePicker.getValue().toString()));
         temp.setEndDate(dateFromDatePicker(endDatePicker.getValue().toString()));
         temp.setRoomID(roomName);
     }
 
+    /**
+     * Takes datePickers date format and creates LocalDate object
+     *
+     * @param datePicker date received from DatePicker
+     * @return newly created LocalDate object from datePickers value
+     */
     private LocalDate dateFromDatePicker(String datePicker) {
-        // DatePicker (values) -> DateTimeObject
         String lines[] = datePicker.split("-");
         int year = Integer.parseInt(lines[0].trim());
         int month = Integer.parseInt(lines[1].trim());
@@ -66,7 +100,7 @@ public class ReservationViewModel {
         return LocalDate.of(year, month, day);
     }
 
-    public ObservableList<String> getRooms()  {
+    public ObservableList<String> getRooms() {
         return availableRooms;
     }
 

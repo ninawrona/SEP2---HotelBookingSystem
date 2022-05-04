@@ -9,6 +9,12 @@ import javafx.scene.control.TextField;
 import model.Guest;
 import model.Model;
 
+/**
+ * A class providing functionality for GuestInformationViewController.
+ *
+ * @version 04/05/2022
+ */
+
 public class GuestInformationViewModel {
 
     private Model model;
@@ -19,6 +25,13 @@ public class GuestInformationViewModel {
     private StringProperty errorLabel;
     private TemporaryInformation temp;
 
+
+    /**
+     * Constructor initializing instance variables.
+     *
+     * @param model    model interface
+     * @param tempInfo shared object with ReservationViewModel to store selected room
+     */
     public GuestInformationViewModel(Model model, TemporaryInformation tempInfo) {
         this.model = model;
         this.firstNameField = new SimpleStringProperty("Bob");
@@ -29,7 +42,12 @@ public class GuestInformationViewModel {
         this.temp = tempInfo;
     }
 
-    // Create new booking
+
+    /**
+     * Delegates model to create new booking from
+     * TemporaryInformation objects values and
+     * fields from instance variables
+     */
     public void bookRoomWithGuest() {
 
         if (model.book(temp.getRoomID(), temp.getStartDate(), temp.getEndDate(), new Guest(
