@@ -66,7 +66,7 @@ public class ViewHandler extends ViewCreator{
 
 
     /**
-     * A void method that refers to initializing method in ViewController object.
+     * A protected, void method that refers to initializing method in ViewController object.
      *
      * @param viewController A ViewController object which is being initialized
      * @param root A Region object which sets the Region object in ViewController

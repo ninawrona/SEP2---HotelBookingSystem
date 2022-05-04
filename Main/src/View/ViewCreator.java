@@ -10,12 +10,28 @@ import java.util.Map;
 
 public abstract class ViewCreator {
 
+    /**
+     * A class creating the controllers.
+     *
+     * @author
+     * @version 04/05/2022
+     */
     private Map<String, ViewController> controllers;
 
+    /**
+     * A one argument constructor intializing Map<String, ViewController> object.
+     */
     public ViewCreator(){
         controllers = new HashMap<String, ViewController>();
     }
 
+    /**
+     * A getter method that gets an existing in the HashMap controller
+     * or that calls the loadFromFXML method to get and put it
+     * in the HashMap.
+     *
+     * @return A ViewController object called controller.
+     */
     public ViewController getViewController(String id) throws IOException {
         ViewController controller = controllers.get(id);
         if(controller == null){
@@ -28,6 +44,12 @@ public abstract class ViewCreator {
 
         return controller;
     }
+
+    /**
+     * A getter method that creates a controller.
+     *
+     * @return A ViewController object called controller.
+     */
 
     private ViewController loadFromFXML(String txtFile) throws IOException{
         ViewController controller = null;
@@ -48,6 +70,12 @@ public abstract class ViewCreator {
         return controller;
     }
 
+    /**
+     * An abstract void method that refers to initializing method in ViewController object.
+     *
+     * @param viewController A ViewController object which is being initialized
+     * @param root A Region object which sets the Region object in ViewController
+     */
     protected abstract void initViewController(ViewController viewController, Region root) throws RemoteException;
 
 }
