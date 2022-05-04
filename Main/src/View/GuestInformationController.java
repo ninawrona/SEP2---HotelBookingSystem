@@ -16,8 +16,6 @@ import java.rmi.RemoteException;
  * @version 04/05/2022
  */
 
-//TODO CHR LOOK AT FACTORY METHOD!
-
 public class GuestInformationController extends ViewController
 {
     public TextField firstNameFields;

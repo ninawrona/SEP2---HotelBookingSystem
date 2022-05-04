@@ -33,12 +33,6 @@ public class RoomBooking
     setGuest(guest);
   }
 
-  public RoomBooking(LocalDate startDate, LocalDate endDate, Room room)
-  {
-    setStartAndEndDate(startDate, endDate);
-    setRoom(room);
-    guest = null;
-  }
 
   /**
    * Method setting the start and end date variables to the values passed as argument.
