@@ -6,3 +6,5 @@
 *.lock
 out/*
 *.iml
+.idea/workspace.xml
+*.class
