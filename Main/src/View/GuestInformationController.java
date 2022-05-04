@@ -69,19 +69,25 @@ public class GuestInformationController extends ViewController
         return root;
     }
 
-    //todo
+    /**
+     * A non argument method that calls the clear() method from viewModel.
+     */
     @Override
     public void reset() {
         //viewModel.clear();
     }
+
     /**
-     * A void method closing this view and setting guest information
+     * A void method setting guest information
      * for currently running booking.
      */
-    public void confirmButton(ActionEvent actionEvent) {
+    public void confirmButton() {
         viewModel.bookRoomWithGuest();
     }
 
+    /**
+     * A void method opening the reservation view.
+     */
     public void goBack() throws IOException {
         viewHandler.openView("ReservationView.fxml");
     }
