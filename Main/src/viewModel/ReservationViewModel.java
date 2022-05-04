@@ -52,6 +52,7 @@ public class ReservationViewModel {
 
     // Puts reserved room data to TemporaryInformation
     public void reserveRoom(String roomName) {
+
         temp.setStartDate(dateFromDatePicker(startDatePicker.getValue().toString()));
         temp.setEndDate(dateFromDatePicker(endDatePicker.getValue().toString()));
         temp.setRoomID(roomName);

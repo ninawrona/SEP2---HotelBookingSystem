@@ -13,7 +13,7 @@ public class RoomList
   private ArrayList<Room> roomList;
 
   /**
-   * A constructor where we initialize an instance variable as a new an arrayList.
+   * A constructor where we initialize an instance variable as a new arrayList.
    */
   RoomList()
   {
@@ -31,6 +31,7 @@ public class RoomList
 
   /**
    * A method meant for calling a list of all rooms.
+   *
    * @return roomList
    */
   public ArrayList<Room> getRoomList()
@@ -38,30 +39,48 @@ public class RoomList
     return roomList;
   }
 
-
-//  public void removeRoomById(String id)
-//  {
-//    for (int i = 0; i<roomList.size(); i++)
-//    {
-//      if (roomList.get(i).getRoomId().equals(id))
-//      {
-//        roomList.remove(i);
-//        return;
-//      }
-//    }
-//  }
+  //  public void removeRoomById(String id)
+  //  {
+  //    for (int i = 0; i<roomList.size(); i++)
+  //    {
+  //      if (roomList.get(i).getRoomId().equals(id))
+  //      {
+  //        roomList.remove(i);
+  //        return;
+  //      }
+  //    }
+  //  }
 
   /**
    * A method that is meant for added a new room to the room list.
+   *
    * @param room room that needs to be added
+   * @throws NullPointerException if argument given is null.
+   * @throws IllegalArgumentException if room is already in list.
    */
-  public void addRoom (Room room)
+  public void addRoom(Room room)
   {
-    roomList.add(room);
+    if (room == null)
+    {
+      throw new NullPointerException(
+          "Cannot insert a null value room.");
+    }
+
+    else if (roomList.contains(room))
+    {
+      throw new IllegalArgumentException(
+          "Cannot have multiple instances of the same room.");
+    }
+
+    else
+    {
+      roomList.add(room);
+    }
   }
 
   /**
    * A method that is used to call a room from a room list by room id.
+   *
    * @param roomID room name
    * @return room
    */
@@ -79,6 +98,7 @@ public class RoomList
 
   /**
    * A method calling room from a room list by the room index
+   *
    * @param index room index
    * @return room
    */
@@ -89,6 +109,7 @@ public class RoomList
 
   /**
    * A method calculates how many rooms are in the room list.
+   *
    * @return size of the roomList
    */
   public int getRoomListSize()
