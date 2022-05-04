@@ -13,7 +13,7 @@ public abstract class ViewCreator {
     /**
      * A class creating the controllers.
      *
-     * @author
+     * @author Group 5
      * @version 04/05/2022
      */
     private Map<String, ViewController> controllers;

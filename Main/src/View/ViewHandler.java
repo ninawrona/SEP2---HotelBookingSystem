@@ -10,8 +10,8 @@ import java.rmi.RemoteException;
 /**
  * A class handling all the occurring views in the system.
  *
- * @author
- * @version 26/04/2022
+ * @author Group 5
+ * @version 04/05/2022
  */
 
 public class ViewHandler extends ViewCreator{

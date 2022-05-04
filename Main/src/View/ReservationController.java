@@ -14,8 +14,8 @@ import java.rmi.RemoteException;
 /**
  * A class creating an ReservationController object.
  *
- * @author
- * @version 26/04/2022
+ * @author Group 5
+ * @version 04/05/2022
  */
 public class ReservationController extends ViewController{
     @FXML private DatePicker startDate;

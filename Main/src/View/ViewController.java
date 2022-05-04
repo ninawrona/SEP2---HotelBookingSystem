@@ -8,7 +8,7 @@ import java.rmi.RemoteException;
 /**
  * A class handling all the occurring views in the system.
  *
- * @author
+ * @author Group 5
  * @version 04/05/2022
  */
 

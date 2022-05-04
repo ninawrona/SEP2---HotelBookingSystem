@@ -12,8 +12,8 @@ import java.rmi.RemoteException;
 /**
  * A class creating an GuestInformationController object.
  *
- * @author
- * @version 26/04/2022
+ * @author Group 5
+ * @version 04/05/2022
  */
 
 public class GuestInformationController extends ViewController
