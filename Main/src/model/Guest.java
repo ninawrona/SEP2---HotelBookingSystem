@@ -14,7 +14,7 @@ public class Guest
   private int phoneNr;
 
   /**
-   * Constructor to initialize instance variables
+   * Constructor to initialize instance variables using set methods.
    * @param fName first name of the guest
    * @param lName last name of the guest
    * @param email email address of the guest
@@ -22,10 +22,81 @@ public class Guest
    */
   public Guest(String fName, String lName, String email, int phoneNr)
   {
+    setfName(fName);
+    setlName(lName);
+    setEmail(email);
+    setPhoneNr(phoneNr);
+  }
+
+  /**
+   * Method setting the fName variable the String passed as an argument.
+   * @throws NullPointerException if argument is null or an empty String.
+   * @param fName first name of the guest
+   */
+  public void setfName(String fName)
+  {
+    if (fName == null || fName.isBlank())
+    {
+      throw new NullPointerException(
+          "First name should not be empty. Please enter a valid first name.");
+    }
+
     this.fName = fName;
+  }
+
+  /**
+   * Method setting the lName variable the String passed as an argument.
+   * @throws NullPointerException if argument is null or an empty String.
+   * @param lName last name of the guest
+   */
+  public void setlName(String lName)
+  {
+    if (lName == null || lName.isBlank())
+    {
+      throw new NullPointerException(
+          "Last name should not be empty. Please enter a valid last name.");
+    }
     this.lName = lName;
+  }
+
+  /**
+   * Method setting the email variable to the String passed as an argument.
+   * @throws NullPointerException if argument is null or an empty String.
+   * @throws IllegalArgumentException if argument does not contain @ or .
+   * @param email email name of the guest
+   */
+  public void setEmail(String email)
+  {
+    if (email == null || email.isBlank())
+    {
+      throw new NullPointerException("E-mail not entered. Please enter a valid e-mail.");
+    }
+    else if (!email.contains(".") || !email.contains("@"))
+    {
+      throw new IllegalArgumentException(
+          "Entered e-mail not valid. Please enter a valid e-mail containing @ and .");
+    }
+
     this.email = email;
-    this.phoneNr = phoneNr;
+  }
+
+  /**
+   * Method setting the phoneNr variable to the int passed as an argument.
+   * @throws IllegalArgumentException if argument is not 8 digits.
+   * @param phoneNr phone number of the guest
+   */
+  public void setPhoneNr(int phoneNr)
+  {
+    if (phoneNr > 9999999 && phoneNr <= 99999999)
+    {
+      this.phoneNr = phoneNr;
+    }
+
+    else
+    {
+      throw new IllegalArgumentException(
+          "Phone number should be 8 digits. Please enter a valid phone number.");
+    }
   }
 
   /**

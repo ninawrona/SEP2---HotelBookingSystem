@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class RoomBookingList
 {
-  private ArrayList<RoomBooking> AllBookings;
+  private ArrayList<RoomBooking> allBookings;
 
   /**
    * A constructor meant for initializing instance variable as a new array list
@@ -19,41 +19,54 @@ public class RoomBookingList
    */
   public RoomBookingList()
   {
-    this.AllBookings = new ArrayList<>();
+    this.allBookings = new ArrayList<>();
   }
 
   /**
    * A method that returns all bookings.
-   * @return AllBookings
+   *
+   * @return allBookings
    */
   public ArrayList<RoomBooking> getAllBookings()
   {
-    return AllBookings;
+    return allBookings;
   }
 
   /**
    * A method meant for added a new room booking to the list
    * and printing out that it was added.
+   *
    * @param booking the booking that is being added
+   * @throws NullPointerException if argument given is null.
    */
   public void addBooking(RoomBooking booking)
   {
-    System.out.println("new booking was added");
-    AllBookings.add(booking);
+    if (booking == null)
+    {
+     throw new NullPointerException("No booking passed as argument.");
+    }
+
+    else
+    {
+      allBookings.add(booking);
+      System.out.println("new booking was added: " + booking);
+    }
+
   }
 
   /**
    * A method that is used for calling a specific booking by index.
+   *
    * @param index specified booking number
    * @return specified booking
    */
-  public RoomBooking getBooking (int index)
+  public RoomBooking getBooking(int index)
   {
-    for (int i = 0; i < AllBookings.size(); i++)
+    for (int i = 0; i < allBookings.size(); i++)
     {
-      if (AllBookings.get(i).equals(index))
+      if (allBookings.get(i).equals(allBookings.get(index)))
       {
-        return AllBookings.get(i);
+        return allBookings.get(i);
       }
     }
     return null;
@@ -61,31 +74,39 @@ public class RoomBookingList
 
   /**
    * A method that returns how many rooms are booked.
+   *
    * @return size of AllBooking array list.
    */
   public int bookedRoomListSize()
   {
-    return AllBookings.size();
+    return allBookings.size();
   }
 
   /**
    * A method that is meant for getting a list of rooms in the span of given dates.
+   *
    * @param startDate start date
-   * @param endDate end date
+   * @param endDate   end date
    * @return rooms
    */
-  public ArrayList<Room> getBookedRoomsBy(LocalDate startDate, LocalDate endDate)
+  public ArrayList<Room> getBookedRoomsBy(LocalDate startDate,
+      LocalDate endDate)
   {
     ArrayList<Room> rooms = new ArrayList<>();
-    for (int i = 0; i < AllBookings.size(); i++)
+    for (int i = 0; i < allBookings.size(); i++)
     {
-      if (AllBookings.get(i).getStartDate().isBefore(endDate) && AllBookings.get(i).getStartDate().isAfter(startDate)
-      || AllBookings.get(i).getEndDate().isBefore(endDate) && AllBookings.get(i).getEndDate().isAfter(startDate)
-      || (startDate.isBefore(AllBookings.get(i).getEndDate()) && startDate.isAfter(AllBookings.get(i).getStartDate())
-        || endDate.isBefore(AllBookings.get(i).getEndDate()) && endDate.isAfter(AllBookings.get(i).getStartDate())) ||
-      startDate.equals(AllBookings.get(i).getStartDate()) || endDate.equals(AllBookings.get(i).getEndDate()))
+      if (allBookings.get(i).getStartDate().isBefore(endDate)
+          && allBookings.get(i).getStartDate().isAfter(startDate)
+          || allBookings.get(i).getEndDate().isBefore(endDate)
+          && allBookings.get(i).getEndDate().isAfter(startDate) || (
+          startDate.isBefore(allBookings.get(i).getEndDate())
+              && startDate.isAfter(allBookings.get(i).getStartDate())
+              || endDate.isBefore(allBookings.get(i).getEndDate())
+              && endDate.isAfter(allBookings.get(i).getStartDate()))
+          || startDate.equals(allBookings.get(i).getStartDate())
+          || endDate.equals(allBookings.get(i).getEndDate()))
       {
-        rooms.add(AllBookings.get(i).getRoom());
+        rooms.add(allBookings.get(i).getRoom());
       }
     }
     return rooms;
