@@ -4,15 +4,34 @@ import javax.print.DocFlavor;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ * A class that implements the Model interface and manages the bookings.
+ *
+ * @author Group 5
+ * @version 04/05/2022
+ */
+
+
 public class ModelManager implements Model {
     private RoomBookingList allBookings;
     private RoomList roomList;
 
+    /**
+     * A constructor that is meant to initialize
+     * the instance variables as a new array lists
+     * that will store a list of all rooms and a list of booked rooms.
+     */
     public ModelManager() {
         allBookings = new RoomBookingList();
         roomList = new RoomList();
     }
 
+    /**
+     * A method that returns all available rooms by selected date
+     * @param startDate start date
+     * @param endDate end date
+     * @return available rooms
+     */
     @Override
     public ArrayList<Room> availableRooms(LocalDate startDate, LocalDate endDate) {
         ArrayList<Room> notAvailableRooms = allBookings.getBookedRoomsBy(startDate, endDate);
@@ -29,7 +48,13 @@ public class ModelManager implements Model {
         return finalList;
     }
 
-    // Making check right before making a booking (if that room is available)
+    /**
+     * A method that checks if the room is available right before bookings after the personal information is entered
+     * @param roomId room number
+     * @param startDate start date
+     * @param endDate end date
+     * @return true if rooms is allowed to be booked and false is room is not allowed to be booked
+     */
     public boolean isBookingAllowed(String roomId, LocalDate startDate, LocalDate endDate) {
         ArrayList<Room> notAvailableRooms = allBookings.getBookedRoomsBy(startDate, endDate);
 
@@ -41,6 +66,14 @@ public class ModelManager implements Model {
         return true;
     }
 
+    /**
+     * A method that is meant for booking a room.
+     * @param roomId room number
+     * @param startDate start date
+     * @param endDate end date
+     * @param guest guest
+     * @return true if the room is booked and false if the room is not booked
+     */
     // If room is booked successfully return true
     @Override
     public boolean book(String roomId, LocalDate startDate,
