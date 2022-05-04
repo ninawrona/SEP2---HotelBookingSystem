@@ -4,19 +4,6 @@
     <list default="true" id="32ca0a81-cf8a-42b8-819d-8c63f3cc522b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/General (to delete)/production/Main/View/GuestInformationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/General (to delete)/production/Main/View/GuestInformationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/General (to delete)/production/Main/View/ReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/General (to delete)/production/Main/View/ReservationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/General (to delete)/production/Main/View/ViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/General (to delete)/production/Main/View/ViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/General (to delete)/production/Main/View/ViewCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/General (to delete)/production/Main/View/ViewCreator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/General (to delete)/production/Main/View/ViewHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/General (to delete)/production/Main/View/ViewHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/General (to delete)/production/Main/model/Guest.class" beforeDir="false" afterPath="$PROJECT_DIR$/General (to delete)/production/Main/model/Guest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/General (to delete)/production/Main/model/ModelManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/General (to delete)/production/Main/model/ModelManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/General (to delete)/production/Main/model/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/General (to delete)/production/Main/model/Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/General (to delete)/production/Main/model/RoomBooking.class" beforeDir="false" afterPath="$PROJECT_DIR$/General (to delete)/production/Main/model/RoomBooking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/General (to delete)/production/Main/model/RoomBookingList.class" beforeDir="false" afterPath="$PROJECT_DIR$/General (to delete)/production/Main/model/RoomBookingList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/General (to delete)/production/Main/model/RoomList.class" beforeDir="false" afterPath="$PROJECT_DIR$/General (to delete)/production/Main/model/RoomList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/Main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Main/Main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/src/model/Guest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/model/Guest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +42,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -86,7 +74,7 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GuestTest">
+  <component name="RunManager" selected="Application.Run">
     <configuration name="Run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Run" />
       <module name="Main" />
@@ -122,8 +110,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GuestTest" />
         <item itemvalue="Application.Run" />
+        <item itemvalue="JUnit.GuestTest" />
       </list>
     </recent_temporary>
   </component>
