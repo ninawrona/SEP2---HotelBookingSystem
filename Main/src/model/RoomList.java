@@ -2,10 +2,19 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ * A class meant for creating, storing and manipulating a list of all rooms.
+ *
+ * @author Group 5
+ * @version 04/05/2022
+ */
 public class RoomList
 {
   private ArrayList<Room> roomList;
 
+  /**
+   * A constructor where we initialize an instance variable as a new an arrayList.
+   */
   RoomList()
   {
     this.roomList = new ArrayList<>();
@@ -20,9 +29,13 @@ public class RoomList
     addRoom(new Room("4-super-max-lux-room"));
   }
 
+  /**
+   * A method meant for calling a list of all rooms.
+   * @return roomList
+   */
   public ArrayList<Room> getRoomList()
   {
-    return new ArrayList<Room>(roomList);
+    return roomList;
   }
 
 
@@ -38,11 +51,20 @@ public class RoomList
 //    }
 //  }
 
+  /**
+   * A method that is meant for added a new room to the room list.
+   * @param room room that needs to be added
+   */
   public void addRoom (Room room)
   {
     roomList.add(room);
   }
 
+  /**
+   * A method that is used to call a room from a room list by room id.
+   * @param roomID room name
+   * @return room
+   */
   public Room getRoom(String roomID)
   {
     for (int i = 0; i < roomList.size(); i++)
@@ -55,11 +77,20 @@ public class RoomList
     return null;
   }
 
+  /**
+   * A method calling room from a room list by the room index
+   * @param index room index
+   * @return room
+   */
   public Room getRoomByNr(int index)
   {
     return roomList.get(index);
   }
 
+  /**
+   * A method calculates how many rooms are in the room list.
+   * @return size of the roomList
+   */
   public int getRoomListSize()
   {
     return roomList.size();
