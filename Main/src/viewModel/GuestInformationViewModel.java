@@ -19,21 +19,26 @@ public class GuestInformationViewModel {
     private StringProperty errorLabel;
     private TemporaryInformation temp;
 
-    public GuestInformationViewModel(Model model) {
+    public GuestInformationViewModel(Model model, TemporaryInformation tempInfo) {
         this.model = model;
-        this.firstNameField = new SimpleStringProperty();
-        this.lastNameField = new SimpleStringProperty();
-        this.emailField = new SimpleStringProperty();
-        this.phoneNumberField = new SimpleStringProperty();
+        this.firstNameField = new SimpleStringProperty("Bob");
+        this.lastNameField = new SimpleStringProperty("Builder");
+        this.emailField = new SimpleStringProperty("Bob@Builder.build");
+        this.phoneNumberField = new SimpleStringProperty("202020");
         this.errorLabel = new SimpleStringProperty();
-        this.temp = new TemporaryInformation();
+        this.temp = tempInfo;
     }
 
+    // Create new booking
     public void bookRoomWithGuest() {
-        model.book(temp.getRoomID(), temp.getStartDate(), temp.getEndDate(), new Guest(
-            firstNameField.getValue(), lastNameField.getValue(),
-            emailField.getValue(),Integer.parseInt(phoneNumberField.getValue()))
-        );
+
+        if (model.book(temp.getRoomID(), temp.getStartDate(), temp.getEndDate(), new Guest(
+                firstNameField.getValue(), lastNameField.getValue(),
+                emailField.getValue(), Integer.parseInt(phoneNumberField.getValue())))) {
+            errorLabel.setValue("Room was booked!");
+        } else {
+            errorLabel.setValue("This room is booked during this time period!");
+        }
     }
 
     public StringProperty getFirstNameField() {

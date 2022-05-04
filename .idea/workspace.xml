@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="32ca0a81-cf8a-42b8-819d-8c63f3cc522b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/src/Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/Run.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/src/View/GuestInformationView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/View/GuestInformationView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/src/View/ReservationView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/View/ReservationView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +96,10 @@
       <workItem from="1650886723715" duration="56000" />
       <workItem from="1650887472080" duration="12231000" />
       <workItem from="1650977645063" duration="400000" />
+      <workItem from="1650978122319" duration="326000" />
+      <workItem from="1650984033975" duration="21206000" />
+      <workItem from="1651045039653" duration="34000" />
+      <workItem from="1651066905195" duration="34000" />
     </task>
     <servers />
   </component>
@@ -121,7 +122,7 @@
     <SUITE FILE_PATH="coverage/SEP2___HotelBookingSystem$ViewHandler.ic" NAME="ViewHandler Coverage Results" MODIFIED="1650966579596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>View.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SEP2___HotelBookingSystem$Run.ic" NAME="Run Coverage Results" MODIFIED="1650976633695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SEP2___HotelBookingSystem$Run.ic" NAME="Run Coverage Results" MODIFIED="1650990310848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/SEP2___HotelBookingSystem$MyApplication.ic" NAME="MyApplication Coverage Results" MODIFIED="1650967841362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>View.*</FILTER>
     </SUITE>

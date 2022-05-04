@@ -3,7 +3,6 @@ package View;
 
 import javafx.scene.layout.Region;
 import viewModel.ViewModelFactory;
-
 import java.rmi.RemoteException;
 
 public abstract class ViewController {

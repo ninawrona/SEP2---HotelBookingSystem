@@ -8,8 +8,9 @@ public class ViewModelFactory {
     private ReservationViewModel reservationViewModel;
 
     public ViewModelFactory(Model model){
-        this.reservationViewModel = new ReservationViewModel(model);
-        this.guestInformationViewModel = new GuestInformationViewModel(model);
+        TemporaryInformation tempInfo = new TemporaryInformation();
+        this.reservationViewModel = new ReservationViewModel(model,tempInfo);
+        this.guestInformationViewModel = new GuestInformationViewModel(model,tempInfo);
     }
 
     public GuestInformationViewModel getGuestInformationViewModel(){
