@@ -38,7 +38,9 @@ public class ViewHandler extends ViewCreator{
         this.primaryStage = primaryStage;
         this.currentScene = new Scene(new Region());
 
-        openView("ReservationView.fxml");
+        // TODO Delete and un-comment!
+        openView("RoomListView.fxml");
+        //openView("ReservationView.fxml");
 
     }
 

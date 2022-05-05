@@ -40,17 +40,6 @@ public class RoomList
     return roomList;
   }
 
-  //  public void removeRoomById(String id)
-  //  {
-  //    for (int i = 0; i<roomList.size(); i++)
-  //    {
-  //      if (roomList.get(i).getRoomId().equals(id))
-  //      {
-  //        roomList.remove(i);
-  //        return;
-  //      }
-  //    }
-  //  }
 
   /**
    * A method that is meant for added a new room to the room list.
@@ -116,5 +105,28 @@ public class RoomList
   public int getRoomListSize()
   {
     return roomList.size();
+  }
+
+  /**
+   * Method removing a room from the list of all rooms.
+   *
+   * @param roomId ID of the room to be removed.
+   * @return true if room is successfully removed (if room is present in list.)
+   * @throws IllegalArgumentException if room is not  found.
+   */
+  public boolean removeRoom(String roomId)
+  {
+    Room roomToRemove = null;
+    if (roomList.contains(getRoom(roomId)))
+    {
+      roomToRemove = getRoom(roomId);
+      roomList.remove(roomToRemove);
+      return true;
+    }
+
+    else
+    {
+      throw new IllegalArgumentException("Room not present in RoomList.");
+    }
   }
 }

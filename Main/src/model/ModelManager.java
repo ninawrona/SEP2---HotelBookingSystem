@@ -79,6 +79,54 @@ public class ModelManager implements Model
     return true;
   }
 
+  @Override public boolean addRoom(String roomId, String type, int nrBeds)
+  {
+    //TODO
+    return false;
+  }
+
+  /**
+   * Method removing a room from the list of rooms in the system.
+   * To prevent data-corruption, it checks if the room corresponding to the ID passed as an argument has any current or future bookings
+   * using the isBookingAllowed method, and if this is not the case - removes it from the list.
+   * @param roomId the ID of the room to be removed
+   * @return true if room is removed successfully
+   * @throws IllegalArgumentException if room to be removed has any current or future bookings.
+   */
+  @Override public boolean removeRoom(String roomId)
+  {
+    if (isBookingAllowed(roomId, LocalDate.now(), LocalDate.MAX))
+    {
+      roomList.removeRoom(roomId);
+      return true;
+    }
+
+    //TODO make something fancy regarding this -> when we have booking id,
+    // return conflicting booking id's.
+
+    else
+    {
+      throw new IllegalArgumentException("ERROR: Room is part of current or future bookings. Room not deleted.");
+    }
+  }
+
+  /**
+   * Method returning the list of all rooms currently in the system.
+   * @return list of all rooms.
+   */
+  @Override public ArrayList<Room> getAllRooms()
+  {
+    return roomList.getRoomList();
+  }
+
+  @Override public boolean editRoomInfo(String roomId, String type, int nrBeds)
+  {
+    //TODO
+    return false;
+  }
+
+
+
   /**
    * A method that is meant for booking a room.
    *
@@ -100,9 +148,9 @@ public class ModelManager implements Model
 
     else
     {
-      throw new IllegalArgumentException("Selected Room is no longer available for selected dates.");
+      throw new IllegalArgumentException(
+          "Selected Room is no longer available for selected dates.");
     }
   }
-
 
 }

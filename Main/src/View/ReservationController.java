@@ -45,6 +45,8 @@ public class ReservationController extends ViewController{
      * @param viewModelFactory  A ViewModelFactory object which will be used to set the instance variable.
      * @param root        A Region object which will be used to set the instance variable.
      */
+
+
     public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory, Region root)
             throws RemoteException
     {
@@ -54,6 +56,8 @@ public class ReservationController extends ViewController{
         this.viewModel = viewModelFactory.getReservationViewModel();
         init();
     }
+
+
 
     /**
      * A getter method returning the Region object.
