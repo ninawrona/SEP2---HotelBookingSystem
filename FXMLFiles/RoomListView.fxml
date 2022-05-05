@@ -19,22 +19,27 @@
       <ListView prefHeight="279.0" prefWidth="600.0" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Add">
+            <Button mnemonicParsing="false" onAction="#addButton" prefHeight="50.0" prefWidth="150.0" text="Add">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Edit">
+            <Button mnemonicParsing="false" onAction="#editButton" prefHeight="50.0" prefWidth="150.0" text="Edit">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Remove">
+            <Button mnemonicParsing="false" onAction="#removeButton" prefHeight="50.0" prefWidth="150.0" text="Remove">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
             </Button>
          </children>
       </HBox>
+      <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="647.0" text="Error label">
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </Label>
    </children>
 </VBox>

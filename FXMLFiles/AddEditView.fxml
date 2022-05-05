@@ -29,14 +29,14 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefHeight="30.0" prefWidth="150.0">
+                  <TextField fx:id="idField" prefHeight="30.0" prefWidth="150.0">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="71.0" prefWidth="600.0">
                <children>
                   <Label prefHeight="45.0" prefWidth="156.0" text="Type">
                      <font>
@@ -46,7 +46,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </Label>
-                  <ComboBox prefHeight="30.0" prefWidth="150.0" />
+                  <ComboBox fx:id="typesDropdown" prefHeight="30.0" prefWidth="150.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="92.0" prefWidth="600.0">
@@ -59,7 +59,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField prefWidth="150.0">
+                  <TextField fx:id="nrOfBedsField" prefWidth="150.0">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
@@ -70,7 +70,12 @@
       </VBox>
       <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="119.0" text="Confirm">
+            <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="496.0" text="Error label">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Label>
+            <Button mnemonicParsing="false" onAction="#confirmButton" prefHeight="32.0" prefWidth="119.0" text="Confirm">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
