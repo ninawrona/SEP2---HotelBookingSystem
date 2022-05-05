@@ -1,11 +1,9 @@
 package View;
 
-import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import viewModel.AddEditViewModel;
-import viewModel.ReservationViewModel;
 import viewModel.ViewModelFactory;
 
 import java.rmi.RemoteException;
