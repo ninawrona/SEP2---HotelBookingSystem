@@ -1,8 +1,6 @@
 package View;
 
-import javafx.event.ActionEvent;
 import javafx.scene.layout.Region;
-import viewModel.ReservationViewModel;
 import viewModel.RoomListViewModel;
 import viewModel.ViewModelFactory;
 
