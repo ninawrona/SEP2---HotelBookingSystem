@@ -32,7 +32,12 @@ public class GuestInformationController extends ViewController
      */
     @Override
     public void init() {
-
+        // Binding
+        firstNameFields.textProperty().bindBidirectional(viewModel.getFirstNameField());
+        lastNameField.textProperty().bindBidirectional(viewModel.getLastNameField());
+        emailField.textProperty().bindBidirectional(viewModel.getEmailField());
+        phoneNumberField.textProperty().bindBidirectional(viewModel.getPhoneNumberField());
+        errorLabel.textProperty().bindBidirectional(viewModel.getErrorLabel());
     }
 
     /**
@@ -51,12 +56,6 @@ public class GuestInformationController extends ViewController
 
         init();
 
-        // Binding
-        firstNameFields.textProperty().bindBidirectional(viewModel.getFirstNameField());
-        lastNameField.textProperty().bindBidirectional(viewModel.getLastNameField());
-        emailField.textProperty().bindBidirectional(viewModel.getEmailField());
-        phoneNumberField.textProperty().bindBidirectional(viewModel.getPhoneNumberField());
-        errorLabel.textProperty().bindBidirectional(viewModel.getErrorLabel());
     }
 
 

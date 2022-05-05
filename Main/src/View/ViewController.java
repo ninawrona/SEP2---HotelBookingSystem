@@ -34,6 +34,7 @@ public abstract class ViewController {
         this.root = root;
         this.viewHandler = viewHandler;
         this.viewModelFactory = viewModelFactory;
+        init();
     }
 
     /**

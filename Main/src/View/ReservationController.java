@@ -30,7 +30,13 @@ public class ReservationController extends ViewController{
      * A none argument, void method initializing instance variables.
      */
     @Override
-    public void init() {}
+    public void init() {
+        // Binding
+        availableRoom.setItems(viewModel.getRooms());
+        startDate.valueProperty().bindBidirectional(viewModel.getStartDatePicker());
+        endDate.valueProperty().bindBidirectional(viewModel.getEndDatePicker());
+        errorLabel.textProperty().bind(viewModel.getErrorLabel());
+    }
 
     /**
      * A void method initializing instance variables.
@@ -47,12 +53,6 @@ public class ReservationController extends ViewController{
         this.viewModelFactory = viewModelFactory;
         this.viewModel = viewModelFactory.getReservationViewModel();
         init();
-
-        // Binding
-        availableRoom.setItems(viewModel.getRooms());
-        startDate.valueProperty().bindBidirectional(viewModel.getStartDatePicker());
-        endDate.valueProperty().bindBidirectional(viewModel.getEndDatePicker());
-        errorLabel.textProperty().bind(viewModel.getErrorLabel());
     }
 
     /**
