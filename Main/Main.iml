@@ -30,5 +30,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="JavaFX11.02" level="project" />
   </component>
 </module>
