@@ -37,7 +37,7 @@ public class RoomList
    */
   public ArrayList<Room> getRoomList()
   {
-    return roomList;
+    return new ArrayList<>(roomList);
   }
 
   //  public void removeRoomById(String id)
