@@ -1,12 +1,12 @@
 package View;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
-import viewModel.ReservationViewModel;
+import model.Room;
 import viewModel.RoomListViewModel;
+import viewModel.SimpleRoomViewModel;
 import viewModel.ViewModelFactory;
 
 import java.rmi.RemoteException;
@@ -14,10 +14,14 @@ import java.util.Optional;
 
 public class RoomListViewController extends ViewController
 {
+
   //TODO maybe somehow change this to show more than just a String containing
   // Room ID?? Could maybe be a table instead, showing all information.
   // Would probably make sense once database is implemented as well.
-  @FXML private ListView<String> roomList;
+  @FXML private TableView<SimpleRoomViewModel> roomList;
+  @FXML private TableColumn<SimpleRoomViewModel, String> numberColumn;
+  @FXML private TableColumn<SimpleRoomViewModel, String> typeColumn;
+  @FXML private TableColumn<SimpleRoomViewModel, Integer> numberOfBedsColumn;
   @FXML private Label errorLabel;
   private Region root;
   private ViewHandler viewHandler;
@@ -25,12 +29,20 @@ public class RoomListViewController extends ViewController
 
 
 
+
   @Override public void init()
   {
-    // Binding
-      roomList.setItems(viewModel.getAllRoomsByID());
+    // Bindings
+      numberColumn.setCellValueFactory(cellData -> cellData.getValue()
+          .roomNumberProperty());
+      typeColumn.setCellValueFactory(cellData -> cellData.getValue()
+          .roomTypeProperty());
+      numberOfBedsColumn.setCellValueFactory(cellData ->  cellData.getValue().numberOfBedsProperty().asObject());
+
       errorLabel.textProperty().bindBidirectional(viewModel.getErrorLabel());
       viewModel.updateRoomList();
+
+      roomList.setItems(viewModel.getAllRooms());
   }
 
 
@@ -58,6 +70,11 @@ public class RoomListViewController extends ViewController
 
   @Override public void reset()
   {
+    /*
+    viewModel.clear();
+
+
+     */
 
   }
 
@@ -77,9 +94,9 @@ public class RoomListViewController extends ViewController
    */
   public void removeButton()
     {
-      String selectedRoomToRemove = roomList.getSelectionModel().getSelectedItem();
+      int test = roomList.getSelectionModel().getSelectedIndex();
 
-      if (selectedRoomToRemove == null)
+      if (test == -1)
       {
         errorLabel.setTextFill(Color.RED);
         errorLabel.setText("Please select a room to remove before clicking.");
@@ -88,7 +105,7 @@ public class RoomListViewController extends ViewController
       else
       {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setHeaderText("Confirm deletion of room: " + selectedRoomToRemove);
+        alert.setHeaderText("Confirm deletion of room: " + roomList.getSelectionModel().getSelectedItem().roomNumberProperty().get());
 
         ButtonType confirm = new ButtonType("Confirm");
         ButtonType cancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
@@ -98,7 +115,7 @@ public class RoomListViewController extends ViewController
         if (result.get() == confirm)
         {
           errorLabel.setTextFill(Color.GREEN);
-          viewModel.removeRoom(selectedRoomToRemove);
+          viewModel.removeRoom(roomList.getSelectionModel().getSelectedItem().roomNumberProperty().get());
           viewModel.updateRoomList();
 
         }

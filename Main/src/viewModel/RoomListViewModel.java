@@ -1,24 +1,28 @@
 package viewModel;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Model;
-import model.ModelManager;
+import model.Room;
 
 public class RoomListViewModel
 {
     private Model model;
     // TODO do we need this??
     private TemporaryInformation temporaryInfo;
-    private ObservableList<String> allRoomsByID;
+    private ObservableList<SimpleRoomViewModel> allRooms;
     private SimpleStringProperty errorLabel;
+
+
 
   public RoomListViewModel(Model model, TemporaryInformation tempInfo)
   {
    this.model = model;
    this.temporaryInfo = tempInfo;
-   this.allRoomsByID = FXCollections.observableArrayList();
+   this.allRooms = FXCollections.observableArrayList();
    this.errorLabel = new SimpleStringProperty("");
   }
 
@@ -28,10 +32,10 @@ public class RoomListViewModel
    */
   public void updateRoomList()
   {
-    allRoomsByID.clear();
+    allRooms.clear();
     for (int i = 0; i < model.getAllRooms().size(); i++ )
     {
-      allRoomsByID.add(model.getAllRooms().get(i).getRoomId());
+      allRooms.add(new SimpleRoomViewModel(model.getAllRooms().get(i)));
     }
   }
 
@@ -72,8 +76,12 @@ public class RoomListViewModel
    * Method for getting the ObservableList containing all Rooms listed by ID's
    * @return allRoomsByID.
    */
-  public ObservableList<String> getAllRoomsByID()
+  public ObservableList<SimpleRoomViewModel> getAllRooms()
   {
-    return allRoomsByID;
+    return allRooms;
   }
+
+
 }
+
+
