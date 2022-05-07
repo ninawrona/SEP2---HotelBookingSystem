@@ -9,6 +9,10 @@ package model;
 public class Room
 {
   private String roomId;
+  private RoomType roomType;
+  private int numberOfBeds;
+
+  //todo change javadoc
 
   /**
    * One-argument contructor
@@ -16,15 +20,46 @@ public class Room
    *
    * @param roomId room number
    */
-  public Room(String roomId)
+  public Room(String roomId, RoomType roomOfType, int numberOfBeds)
   {
     setRoomId(roomId);
+    setRoomType(roomOfType);
+    setNumberOfBeds(numberOfBeds);
   }
 
+  public void setRoomType(RoomType roomOfType)
+  {
+    if (roomOfType == null)
+    {
+      throw new IllegalArgumentException("Room type cannot be null");
+    }
+
+    else
+    {
+      this.roomType = roomOfType;
+    }
+  }
+
+  public void setNumberOfBeds(int numberOfBeds)
+  {
+    if (numberOfBeds == 0)
+    {
+      throw new IllegalArgumentException("Number of beds should not be 0");
+    }
+
+    else
+    {
+      this.numberOfBeds = numberOfBeds;
+    }
+  }
+
+
+
   /**
-   * Method setting the roomId variable to the string given as argument.
-   * @throws IllegalArgumentException if argument is null or an empty String.
+   * Private method setting the roomId variable to the string given as argument.
+   *
    * @param roomId
+   * @throws IllegalArgumentException if argument is null or an empty String.
    */
   public void setRoomId(String roomId)
   {
@@ -47,6 +82,16 @@ public class Room
     return roomId;
   }
 
+  public RoomType getRoomType()
+  {
+    return roomType;
+  }
+
+  public int getNumberOfBeds()
+  {
+    return numberOfBeds;
+  }
+
   /**
    * A method meant for making a copy of a room object
    *
@@ -54,12 +99,13 @@ public class Room
    */
   public Room copy()
   {
-    Room other = new Room(roomId);
+    Room other = new Room(roomId, roomType, numberOfBeds);
     return other;
   }
 
   @Override public String toString()
   {
-    return "Room number: " + roomId;
+    return "Room number: " + roomId+ ", Type: " + roomType.toString() + ", Number of beds: " + numberOfBeds;
   }
+
 }

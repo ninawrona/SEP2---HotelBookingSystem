@@ -11,18 +11,18 @@ class RoomListTest
   RoomList testRoomListOneElement;
   RoomList testRoomList3Elements;
   RoomList testRoomList7Elements;
-  Room room1 = new Room("Room1");
-  Room room2 = new Room("Room2");
-  Room room3 = new Room("Room3");
-  Room room4 = new Room("Room4");
-  Room room5 = new Room("Room5");
-  Room room6 = new Room("Room6");
-  Room room7 = new Room("Room7");
-  Room room8 = new Room("Room8");
-  Room room9 = new Room("Room9");
-  Room room10 = new Room("Room10");
-  Room room11 = new Room("Room11");
-  Room room12 = new Room("Room12");
+  Room room1 = new Room("1.01", RoomType.SINGLE, 1);
+  Room room2 = new Room("1.02", RoomType.DOUBLE, 2);
+  Room room3 = new Room("1.03", RoomType.FAMILY, 3);
+  Room room4 = new Room("1.04", RoomType.SUITE, 2);
+  Room room5 = new Room("1.05", RoomType.SINGLE, 1);
+  Room room6 = new Room("1.06", RoomType.SINGLE, 1);
+  Room room7 = new Room("1.07", RoomType.SINGLE, 1);
+  Room room8 = new Room("Room8", RoomType.FAMILY, 3);
+  Room room9 = new Room("Room9", RoomType.FAMILY, 3);
+  Room room10 = new Room("Room10", RoomType.FAMILY, 3);
+  Room room11 = new Room("Room11", RoomType.FAMILY, 3);
+  Room room12 = new Room("Room12", RoomType.FAMILY, 3);
 
   @BeforeEach void setUp()
   {

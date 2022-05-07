@@ -9,13 +9,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RoomBookingListTest
 {
-  Room room1 = new Room("1.01");
-  Room room2 = new Room("1.02");
-  Room room3 = new Room("1.03");
-  Room room4 = new Room("1.04");
-  Room room5 = new Room("1.05");
-  Room room6 = new Room("1.06");
-  Room room7 = new Room("1.07");
+  Room room1 = new Room("1.01", RoomType.SINGLE, 1);
+  Room room2 = new Room("1.02", RoomType.DOUBLE, 2);
+  Room room3 = new Room("1.03", RoomType.FAMILY, 3);
+  Room room4 = new Room("1.04", RoomType.SUITE, 2);
+  Room room5 = new Room("1.05", RoomType.SINGLE, 1);
+  Room room6 = new Room("1.06", RoomType.SINGLE, 1);
+  Room room7 = new Room("1.07", RoomType.SINGLE, 1);
 
   Guest guest = new Guest("Bob", "Builder", "bob@builder.test", 88888888);
   RoomBooking book1 = new RoomBooking(LocalDate.now(), LocalDate.now().plusDays(10), room1, guest);

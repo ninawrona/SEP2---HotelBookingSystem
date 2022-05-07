@@ -81,6 +81,7 @@ public class RoomListViewController extends ViewController
 
       if (selectedRoomToRemove == null)
       {
+        errorLabel.setTextFill(Color.RED);
         errorLabel.setText("Please select a room to remove before clicking.");
       }
 
@@ -99,6 +100,7 @@ public class RoomListViewController extends ViewController
           errorLabel.setTextFill(Color.GREEN);
           viewModel.removeRoom(selectedRoomToRemove);
           viewModel.updateRoomList();
+
         }
         else
         {

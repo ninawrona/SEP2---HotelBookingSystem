@@ -24,6 +24,16 @@ public class ModelManager implements Model
   {
     allBookings = new RoomBookingList();
     roomList = new RoomList();
+    createDummyData();
+  }
+
+  private void createDummyData()
+  {
+    roomList.addRoom(new Room("1.01", RoomType.SINGLE, 1));
+    roomList.addRoom(new Room("1.02", RoomType.DOUBLE, 1));
+    roomList.addRoom(new Room("1.03", RoomType.FAMILY, 3));
+    roomList.addRoom(new Room("1.04", RoomType.DOUBLE, 1));
+    roomList.addRoom(new Room("1.05", RoomType.SUITE, 3));
   }
 
   /**
@@ -152,5 +162,6 @@ public class ModelManager implements Model
           "Selected Room is no longer available for selected dates.");
     }
   }
+
 
 }

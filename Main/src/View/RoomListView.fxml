@@ -15,7 +15,7 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <ListView fx:id="roomList" prefHeight="279.0" prefWidth="600.0" />
+      <ListView fx:id="roomList" prefHeight="288.0" prefWidth="600.0" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Button mnemonicParsing="false" onAction="#addButton" prefHeight="50.0" prefWidth="150.0" text="Add">

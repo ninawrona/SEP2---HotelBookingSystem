@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RoomTest
 {
-  Room testRoom = new Room("TestRoom");
+  Room testRoom = new Room("TestRoom", RoomType.SINGLE, 1);
 
   @BeforeEach void setUp()
   {

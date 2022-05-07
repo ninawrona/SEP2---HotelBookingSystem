@@ -18,16 +18,6 @@ public class RoomList
   RoomList()
   {
     this.roomList = new ArrayList<>();
-    createDummyData();
-  }
-
-  public void createDummyData()
-  {
-    addRoom(new Room("1.01"));
-    addRoom(new Room("1.02"));
-    addRoom(new Room("1.03"));
-    addRoom(new Room("1.04"));
-    addRoom(new Room("1.05"));
   }
 
   /**
