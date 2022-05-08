@@ -112,7 +112,7 @@ public class ModelManager implements Model
     if (isBookingAllowed(roomId, LocalDate.now(), LocalDate.MAX))
     {
       roomList.removeRoom(roomId);
-      property.firePropertyChange("RemoveRoom", roomList, roomId);
+      property.firePropertyChange("RoomRemove", roomList, roomId);
       return true;
     }
 
@@ -149,6 +149,7 @@ public class ModelManager implements Model
     Room roomToEdit = roomList.getRoom(roomId);
     roomToEdit.setRoomType(Room.convertRoomTypeFromString(type));
     roomToEdit.setNumberOfBeds(nrBeds);
+    property.firePropertyChange("RoomEdit", roomId, roomToEdit);
     return true;
 
   }
