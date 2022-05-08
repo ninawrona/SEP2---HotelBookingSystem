@@ -1,9 +1,11 @@
 package model;
 
+import utility.observer.javaobserver.UnnamedPropertyChangeSubject;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public interface Model
+public interface Model extends UnnamedPropertyChangeSubject
 {
   ArrayList<Room> availableRooms(LocalDate startDate, LocalDate endDate);
   boolean book(String roomId, LocalDate startDate, LocalDate endDate, Guest guest);

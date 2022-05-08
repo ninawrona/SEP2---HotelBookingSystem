@@ -1,5 +1,6 @@
 package viewModel;
 
+import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -7,7 +8,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Model;
 
-public class RoomListViewModel
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+public class RoomListViewModel implements PropertyChangeListener
 {
     private Model model;
     // TODO do we need this??
@@ -22,6 +26,8 @@ public class RoomListViewModel
   public RoomListViewModel(Model model, TemporaryInformation tempInfo)
   {
    this.model = model;
+   // Uncomment this when server/client has been implemented.. Right now it gives errors because it is trying to remove the room twice.
+   //model.addListener(this);
    this.temporaryInfo = tempInfo;
 
    this.allRooms = FXCollections.observableArrayList();
@@ -96,6 +102,16 @@ public class RoomListViewModel
     return selectedRoomProperty;
   }
 
+  @Override public void propertyChange(PropertyChangeEvent evt)
+  {
+    Platform.runLater(() -> {
+      switch (evt.getPropertyName())
+      {
+        case "RemoveRoom": removeRoom((String) evt.getNewValue());
+        break;
+      }
+    });
+  }
 }
 
 
