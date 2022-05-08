@@ -5,7 +5,6 @@ import model.Model;
 import model.ModelManager;
 import viewModel.ViewModelFactory;
 
-
 import java.io.IOException;
 
 public class MyApplication extends Application

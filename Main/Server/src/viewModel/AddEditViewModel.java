@@ -12,25 +12,21 @@ public class AddEditViewModel {
 
     private SimpleStringProperty roomNumber;
     private SimpleIntegerProperty numberOfBeds;
-    private String roomType;
+    private SimpleStringProperty roomType;
 
 
     public AddEditViewModel(Model model, TemporaryInformation tempInfo) {
         this.model = model;
         this.temporaryInformation = tempInfo;
 
-        roomNumber = new SimpleStringProperty();
-        numberOfBeds = new SimpleIntegerProperty();
-        load();
+        this.roomNumber = new SimpleStringProperty();
+        this.roomType = new SimpleStringProperty();
+        this.numberOfBeds = new SimpleIntegerProperty();
     }
 
     private void load()
     {
-        System.out.println("LOADING");
-        roomNumber.set(temporaryInformation.getRoomID());
-        System.out.println("LOADING: " + temporaryInformation.getRoomID());
-        numberOfBeds.set(temporaryInformation.getNumberOfBeds());
-        roomType = temporaryInformation.getRoomType();
+
     }
 
     public SimpleStringProperty roomNumberProperty()
@@ -44,7 +40,7 @@ public class AddEditViewModel {
         return numberOfBeds;
     }
 
-    public String getRoomType()
+    public SimpleStringProperty getRoomType()
     {
         return roomType;
     }

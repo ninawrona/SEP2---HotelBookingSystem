@@ -2,7 +2,7 @@ package View;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Region;
-import javax.swing.text.View;
+
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.HashMap;

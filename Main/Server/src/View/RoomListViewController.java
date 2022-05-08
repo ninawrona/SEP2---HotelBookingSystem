@@ -17,6 +17,7 @@ public class RoomListViewController extends ViewController
 {
 
   @FXML private Button editButton;
+  @FXML private Button removeButton;
   @FXML private TableView<SimpleRoomViewModel> roomTable;
   @FXML private TableColumn<SimpleRoomViewModel, String> numberColumn;
   @FXML private TableColumn<SimpleRoomViewModel, String> typeColumn;
@@ -42,10 +43,14 @@ public class RoomListViewController extends ViewController
       roomTable.setItems(viewModel.getAllRooms());
 
       editButton.setDisable(true);
+      editButton.setTooltip(new Tooltip("Click this button to edit the room selected in the table above"));
+      removeButton.setDisable(true);
+      removeButton.setTooltip(new Tooltip("Click this button to remove the room selected from the table above."));
 
       roomTable.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
         viewModel.setSelected(newValue);
         editButton.setDisable(newValue == null);
+        removeButton.setDisable(newValue == null);
       });
   }
 
@@ -101,6 +106,27 @@ public class RoomListViewController extends ViewController
    */
   public void removeButton()
     {
+      // TODO NEW VERSION:
+      Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+      alert.setHeaderText("Confirm deletion of room: " + roomTable.getSelectionModel().getSelectedItem().roomNumberProperty().get());
+
+      ButtonType confirm = new ButtonType("Confirm");
+      ButtonType cancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+      alert.getButtonTypes().setAll(confirm, cancel);
+
+      Optional<ButtonType> result = alert.showAndWait();
+      if (result.get() == confirm)
+      {
+        errorLabel.setTextFill(Color.GREEN);
+        viewModel.removeRoom(roomTable.getSelectionModel().getSelectedItem().roomNumberProperty().get());
+        viewModel.updateRoomList();
+      }
+      else
+      {
+        alert.close();
+      }
+
+      /*    "OLD VERSION"
       if (roomTable.getSelectionModel().getSelectedItem() == null)
       {
         errorLabel.setTextFill(Color.RED);
@@ -128,6 +154,8 @@ public class RoomListViewController extends ViewController
           alert.close();
         }
       }
+
+       */
 
     }
 }

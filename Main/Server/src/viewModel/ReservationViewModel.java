@@ -1,17 +1,13 @@
 package viewModel;
 
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.DatePicker;
 import model.Model;
 import model.Room;
-import model.RoomList;
 
-import java.rmi.RemoteException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 

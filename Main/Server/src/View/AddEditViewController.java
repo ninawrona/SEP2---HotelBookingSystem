@@ -1,15 +1,10 @@
 package View;
 
-import javafx.beans.binding.Bindings;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
-import javafx.util.converter.IntegerStringConverter;
 import viewModel.AddEditViewModel;
-import viewModel.IntStringConverter;
-import viewModel.ReservationViewModel;
 import viewModel.ViewModelFactory;
 
 import java.rmi.RemoteException;
@@ -32,9 +27,6 @@ public class AddEditViewController extends ViewController
     typeDropdown.getItems().add("Family");
     typeDropdown.getItems().add("Suite");
     typeDropdown.getItems();
-    typeDropdown.getSelectionModel().select(viewModel.getRoomType());
-    Bindings.bindBidirectional(nrOfBedsField.textProperty(),
-        viewModel.numberOfBedsProperty(), new IntStringConverter());
   }
 
   /**

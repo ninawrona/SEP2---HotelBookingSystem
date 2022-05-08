@@ -1,11 +1,6 @@
 package viewModel;
 
-import jdk.jshell.execution.LoaderDelegate;
-import model.Room;
-import model.RoomBooking;
-
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class TemporaryInformation
 {

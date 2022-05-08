@@ -4,6 +4,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import viewModel.ViewModelFactory;
+
 import java.io.IOException;
 import java.rmi.RemoteException;
 
