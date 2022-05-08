@@ -89,6 +89,13 @@ public class RoomListViewModel
 
   public void setSelected(SimpleRoomViewModel roomVm)
   {
+    //TODO
+    temporaryInfo.setRoomID(roomVm.roomNumberProperty().get());
+
+    System.out.println("ROOM ID: " + roomVm.roomNumberProperty());
+    System.out.println("TEMPINFO: " + temporaryInfo.getRoomID());
+    temporaryInfo.setRoomType(roomVm.roomTypeProperty().get());
+    temporaryInfo.setNumberOfBeds(roomVm.numberOfBedsProperty().get());
     selectedRoomProperty.set(roomVm);
   }
 

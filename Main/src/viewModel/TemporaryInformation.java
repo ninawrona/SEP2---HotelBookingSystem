@@ -12,12 +12,16 @@ public class TemporaryInformation
   private LocalDate startDate;
   private LocalDate endDate;
   private String roomID;
+  private String roomType;
+  private int numberOfBeds;
 
   public TemporaryInformation()
   {
     this.startDate = null;
     this.endDate = null;
     this.roomID = null;
+    this.roomType = null;
+    this.numberOfBeds = -1;
   }
 
   public void setEndDate(LocalDate endDate)
@@ -33,6 +37,26 @@ public class TemporaryInformation
   public void setStartDate(LocalDate startDate)
   {
     this.startDate = startDate;
+  }
+
+  public String getRoomType()
+  {
+    return roomType;
+  }
+
+  public void setRoomType(String roomType)
+  {
+    this.roomType = roomType;
+  }
+
+  public int getNumberOfBeds()
+  {
+    return numberOfBeds;
+  }
+
+  public void setNumberOfBeds(int numberOfRooms)
+  {
+    this.numberOfBeds = numberOfRooms;
   }
 
   public LocalDate getStartDate()

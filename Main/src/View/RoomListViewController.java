@@ -1,5 +1,6 @@
 package View;
 
+import javafx.beans.property.ObjectProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
@@ -8,12 +9,14 @@ import viewModel.RoomListViewModel;
 import viewModel.SimpleRoomViewModel;
 import viewModel.ViewModelFactory;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.Optional;
 
 public class RoomListViewController extends ViewController
 {
 
+  @FXML private Button editButton;
   @FXML private TableView<SimpleRoomViewModel> roomTable;
   @FXML private TableColumn<SimpleRoomViewModel, String> numberColumn;
   @FXML private TableColumn<SimpleRoomViewModel, String> typeColumn;
@@ -38,7 +41,12 @@ public class RoomListViewController extends ViewController
 
       roomTable.setItems(viewModel.getAllRooms());
 
-      roomTable.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> viewModel.setSelected(newValue));
+      editButton.setDisable(true);
+
+      roomTable.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
+        viewModel.setSelected(newValue);
+        editButton.setDisable(newValue == null);
+      });
   }
 
 
@@ -66,6 +74,7 @@ public class RoomListViewController extends ViewController
 
   @Override public void reset()
   {
+
     /*
     viewModel.clear();
 
@@ -78,8 +87,10 @@ public class RoomListViewController extends ViewController
     {
     }
 
-    public void editButton()
+    public void editButton() throws IOException
     {
+      ObjectProperty<SimpleRoomViewModel> selectedRoom = viewModel.getSelectedProperty();
+      viewHandler.openView("AddEditView.fxml");
     }
 
   /**
