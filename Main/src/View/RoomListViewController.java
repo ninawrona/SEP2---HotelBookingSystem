@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
-import model.Room;
 import viewModel.RoomListViewModel;
 import viewModel.SimpleRoomViewModel;
 import viewModel.ViewModelFactory;
@@ -15,10 +14,7 @@ import java.util.Optional;
 public class RoomListViewController extends ViewController
 {
 
-  //TODO maybe somehow change this to show more than just a String containing
-  // Room ID?? Could maybe be a table instead, showing all information.
-  // Would probably make sense once database is implemented as well.
-  @FXML private TableView<SimpleRoomViewModel> roomList;
+  @FXML private TableView<SimpleRoomViewModel> roomTable;
   @FXML private TableColumn<SimpleRoomViewModel, String> numberColumn;
   @FXML private TableColumn<SimpleRoomViewModel, String> typeColumn;
   @FXML private TableColumn<SimpleRoomViewModel, Integer> numberOfBedsColumn;
@@ -38,11 +34,11 @@ public class RoomListViewController extends ViewController
       typeColumn.setCellValueFactory(cellData -> cellData.getValue()
           .roomTypeProperty());
       numberOfBedsColumn.setCellValueFactory(cellData ->  cellData.getValue().numberOfBedsProperty().asObject());
-
       errorLabel.textProperty().bindBidirectional(viewModel.getErrorLabel());
-      viewModel.updateRoomList();
 
-      roomList.setItems(viewModel.getAllRooms());
+      roomTable.setItems(viewModel.getAllRooms());
+
+      roomTable.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> viewModel.setSelected(newValue));
   }
 
 
@@ -94,9 +90,7 @@ public class RoomListViewController extends ViewController
    */
   public void removeButton()
     {
-      int test = roomList.getSelectionModel().getSelectedIndex();
-
-      if (test == -1)
+      if (roomTable.getSelectionModel().getSelectedItem() == null)
       {
         errorLabel.setTextFill(Color.RED);
         errorLabel.setText("Please select a room to remove before clicking.");
@@ -105,7 +99,7 @@ public class RoomListViewController extends ViewController
       else
       {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setHeaderText("Confirm deletion of room: " + roomList.getSelectionModel().getSelectedItem().roomNumberProperty().get());
+        alert.setHeaderText("Confirm deletion of room: " + roomTable.getSelectionModel().getSelectedItem().roomNumberProperty().get());
 
         ButtonType confirm = new ButtonType("Confirm");
         ButtonType cancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
@@ -115,9 +109,8 @@ public class RoomListViewController extends ViewController
         if (result.get() == confirm)
         {
           errorLabel.setTextFill(Color.GREEN);
-          viewModel.removeRoom(roomList.getSelectionModel().getSelectedItem().roomNumberProperty().get());
+          viewModel.removeRoom(roomTable.getSelectionModel().getSelectedItem().roomNumberProperty().get());
           viewModel.updateRoomList();
-
         }
         else
         {

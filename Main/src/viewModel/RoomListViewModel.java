@@ -14,6 +14,8 @@ public class RoomListViewModel
     // TODO do we need this??
     private TemporaryInformation temporaryInfo;
     private ObservableList<SimpleRoomViewModel> allRooms;
+
+    private ObjectProperty<SimpleRoomViewModel> selectedRoomProperty;
     private SimpleStringProperty errorLabel;
 
 
@@ -22,8 +24,12 @@ public class RoomListViewModel
   {
    this.model = model;
    this.temporaryInfo = tempInfo;
+
    this.allRooms = FXCollections.observableArrayList();
+   updateRoomList();
+
    this.errorLabel = new SimpleStringProperty("");
+   this.selectedRoomProperty = new SimpleObjectProperty<>();
   }
 
   /**
@@ -81,6 +87,15 @@ public class RoomListViewModel
     return allRooms;
   }
 
+  public void setSelected(SimpleRoomViewModel roomVm)
+  {
+    selectedRoomProperty.set(roomVm);
+  }
+
+  public ObjectProperty<SimpleRoomViewModel> getSelectedProperty()
+  {
+    return selectedRoomProperty;
+  }
 
 }
 
