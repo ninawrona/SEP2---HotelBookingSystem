@@ -1,28 +1,34 @@
 package View;
 
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import viewModel.AddEditViewModel;
 import viewModel.ViewModelFactory;
 
+import javax.swing.*;
 import java.rmi.RemoteException;
 
 public class AddEditViewController extends ViewController{
     public TextField idField;
     public ComboBox typeDropdown;
     public TextField nrOfBedsField;
+    public Label errorLabel;
     private Region root;
     private ViewHandler viewHandler;
     private AddEditViewModel viewModel;
 
-    public void confirmButton() {
-    }
+
 
     @Override
     public void init() {
         // Binding
-
+        idField.setText(viewModel.getRoomId());
+        nrOfBedsField.setText(viewModel.getNumberOfBeds());
+        typeDropdown.getItems().removeAll(typeDropdown.getItems());
+        typeDropdown.getItems().addAll(viewModel.getTypes());
+        errorLabel.textProperty().bindBidirectional(viewModel.errorPropertyProperty());
     }
 
     /**
@@ -45,5 +51,27 @@ public class AddEditViewController extends ViewController{
     @Override
     public void reset() {
 
+    }
+
+
+    public void confirmButton() {
+        JFrame jframe = new JFrame();
+        int result = JOptionPane.showConfirmDialog(jframe, "Are you sure you want to make changes?");
+
+        if (result == 0)
+            //    viewModel.addRoom();
+            System.out.println("You pressed YES");
+        else if (result == 1)
+            System.out.println("You pressed NO");
+    }
+
+    @Override
+    public Region getRoot() {
+        return root;
+    }
+
+    @Override
+    public ViewHandler getViewHandler() {
+        return viewHandler;
     }
 }

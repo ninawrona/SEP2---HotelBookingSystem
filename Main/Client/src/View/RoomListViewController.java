@@ -4,6 +4,7 @@ import javafx.scene.layout.Region;
 import viewModel.RoomListViewModel;
 import viewModel.ViewModelFactory;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 
 public class RoomListViewController extends ViewController{
@@ -11,10 +12,12 @@ public class RoomListViewController extends ViewController{
     private ViewHandler viewHandler;
     private RoomListViewModel viewModel;
 
-    public void addButton() {
+    public void addButton() throws IOException {
+        viewHandler.openView("AddEditView.fxml");
     }
 
-    public void editButton() {
+    public void editButton() throws IOException {
+        viewHandler.openView("AddEditView.fxml");
     }
 
     public void removeButton() {

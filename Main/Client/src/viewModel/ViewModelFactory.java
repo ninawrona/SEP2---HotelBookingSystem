@@ -14,7 +14,7 @@ public class ViewModelFactory {
         this.reservationViewModel = new ReservationViewModel(model,tempInfo);
         this.guestInformationViewModel = new GuestInformationViewModel(model,tempInfo);
         this.roomListViewModel = new RoomListViewModel(model, tempInfo);
-        this.addEditViewModel = new AddEditViewModel(model, tempInfo);
+        this.addEditViewModel = new AddEditViewModel(model, new ViewState());
     }
 
     public GuestInformationViewModel getGuestInformationViewModel(){
