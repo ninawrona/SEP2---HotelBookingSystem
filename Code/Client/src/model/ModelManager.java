@@ -1,5 +1,7 @@
 package model;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -14,6 +16,7 @@ public class ModelManager implements Model
 {
   private RoomBookingList allBookings;
   private RoomList roomList;
+  private PropertyChangeSupport property;
 
   /**
    * A constructor that is meant to initialize
@@ -24,6 +27,7 @@ public class ModelManager implements Model
   {
     allBookings = new RoomBookingList();
     roomList = new RoomList();
+    property = new PropertyChangeSupport(this);
     createDummyData();
   }
 
@@ -89,10 +93,12 @@ public class ModelManager implements Model
     return true;
   }
 
-  @Override public boolean addRoom(String roomId, String type, int nrBeds)
+  @Override public boolean addRoom(String roomId, RoomType type, int nrBeds)
   {
-    //TODO
-    return false;
+    Room room = new Room(roomId, type, nrBeds);
+    roomList.addRoom(room);
+
+    return true;
   }
 
   /**
@@ -108,6 +114,7 @@ public class ModelManager implements Model
     if (isBookingAllowed(roomId, LocalDate.now(), LocalDate.MAX))
     {
       roomList.removeRoom(roomId);
+      property.firePropertyChange("RoomRemove", roomList, roomId);
       return true;
     }
 
@@ -129,10 +136,24 @@ public class ModelManager implements Model
     return roomList.getRoomList();
   }
 
+  /**
+   * Method used for editing a room already added to the system.
+   * Firstly, the room is received from the roomList and then the roomtype and number of beds variables are changed according to the values passed as arguments.
+   * @param roomId the room id of the room to be edited (The room id of the room is intentionally not possible to change with this method)
+   * @param type A string value representing the (new) type of the room.
+   * @param nrBeds The (new) number of beds in the room.
+   * @return true if editing succeeds
+   */
   @Override public boolean editRoomInfo(String roomId, String type, int nrBeds)
   {
-    //TODO
-    return false;
+    // TODO decide if this should be a boolean after all??
+
+    Room roomToEdit = roomList.getRoom(roomId);
+    roomToEdit.setRoomType(Room.convertRoomTypeFromString(type));
+    roomToEdit.setNumberOfBeds(nrBeds);
+    property.firePropertyChange("RoomEdit", roomId, roomToEdit);
+    return true;
+
   }
 
 
@@ -163,5 +184,13 @@ public class ModelManager implements Model
     }
   }
 
+  @Override public void addListener(PropertyChangeListener listener)
+  {
+    property.addPropertyChangeListener(listener);
+  }
 
+  @Override public void removeListener(PropertyChangeListener listener)
+  {
+    property.removePropertyChangeListener(listener);
+  }
 }
