@@ -1,5 +1,7 @@
 package model;
 
+import viewModel.RoomTypes;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -77,6 +79,18 @@ public class ModelManager implements Model
       }
     }
     return true;
+  }
+
+  @Override
+  public boolean editRoomInfo(String roomId, RoomTypes type, String nrOfBeds) {
+    return false;
+  }
+
+  @Override
+  public boolean addRoom(String roomId, RoomTypes type, String nrOfBeds) {
+    Room room = new Room(roomId, type, nrOfBeds);
+    roomList.addRoom(room);
+    return false;
   }
 
   /**

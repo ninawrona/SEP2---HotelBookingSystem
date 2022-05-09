@@ -1,5 +1,7 @@
 package model;
 
+import viewModel.RoomTypes;
+
 /**
  * A class that creates room object
  *
@@ -9,6 +11,8 @@ package model;
 public class Room
 {
   private String roomId;
+  private RoomTypes type;
+  private String nrOfBeds;
 
   /**
    * One-argument contructor
@@ -16,9 +20,11 @@ public class Room
    *
    * @param roomId room number
    */
-  public Room(String roomId)
+  public Room(String roomId, RoomTypes type, String nrOfBeds)
   {
     setRoomId(roomId);
+    setType(type);
+    setNrOfBeds(nrOfBeds);
   }
 
   /**
@@ -54,12 +60,28 @@ public class Room
    */
   public Room copy()
   {
-    Room other = new Room(roomId);
+    Room other = new Room(roomId, type, nrOfBeds);
     return other;
   }
 
   @Override public String toString()
   {
     return "Room number: " + roomId;
+  }
+
+  public void setType(RoomTypes type) {
+    this.type = type;
+  }
+
+  public void setNrOfBeds(String nrOfBeds) {
+    this.nrOfBeds = nrOfBeds;
+  }
+
+  public RoomTypes getType(){
+    return type;
+  }
+
+  public String getNrOfBeds(){
+    return nrOfBeds;
   }
 }
