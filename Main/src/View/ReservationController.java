@@ -61,8 +61,9 @@ public class ReservationController extends ViewController{
      * @return A Region object called root.
      */
     public Region getRoot(){
-        return root;
-    }
+
+       return root;
+   }
 
     //todo
     @Override
