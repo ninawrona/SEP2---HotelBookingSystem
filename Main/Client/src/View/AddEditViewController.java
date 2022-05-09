@@ -25,7 +25,6 @@ public class AddEditViewController extends ViewController {
     private Region root;
     private ViewHandler viewHandler;
     private AddEditViewModel viewModel;
-    private PropertyChangeSupport support;
 
 
     @Override
@@ -55,7 +54,6 @@ public class AddEditViewController extends ViewController {
         this.viewHandler = viewHandler;
         this.viewModelFactory = viewModelFactory;
         this.viewModel = viewModelFactory.getAddEditViewModel();
-        this.support = new PropertyChangeSupport(this);
         init();
     }
 
