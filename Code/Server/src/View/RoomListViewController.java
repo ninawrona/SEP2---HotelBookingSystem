@@ -95,7 +95,9 @@ public class RoomListViewController extends ViewController
     public void editButton() throws IOException
     {
       ObjectProperty<SimpleRoomViewModel> selectedRoom = viewModel.getSelectedProperty();
+
       viewHandler.openView("AddEditView.fxml");
+      viewModel.setEdit();
     }
 
   /**

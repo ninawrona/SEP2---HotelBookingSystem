@@ -14,19 +14,20 @@ import java.beans.PropertyChangeListener;
 public class RoomListViewModel implements PropertyChangeListener
 {
   private Model model;
+  private ViewState state;
   // TODO do we need this??
-  private TemporaryInformation temporaryInfo;
   private ObservableList<SimpleRoomViewModel> allRooms;
 
   private ObjectProperty<SimpleRoomViewModel> selectedRoomProperty;
   private SimpleStringProperty errorLabel;
 
-  public RoomListViewModel(Model model, TemporaryInformation tempInfo)
+  public RoomListViewModel(Model model, ViewState state)
   {
     this.model = model;
     // Uncomment this when server/client has been implemented.. Right now it gives errors because it is trying to remove the room twice.
     //model.addListener(this);
-    this.temporaryInfo = tempInfo;
+
+    this.state = state;
 
     this.allRooms = FXCollections.observableArrayList();
     updateRoomList();
@@ -119,6 +120,11 @@ public class RoomListViewModel implements PropertyChangeListener
         case "RoomEdit":
       }
     });
+  }
+
+  public void setEdit()
+  {
+    state.setAdd(true);
   }
 }
 

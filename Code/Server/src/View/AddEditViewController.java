@@ -1,43 +1,48 @@
 package View;
 
-import javafx.fxml.FXML;
+import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import viewModel.AddEditViewModel;
 import viewModel.ViewModelFactory;
 
+import javax.swing.*;
+import java.io.IOException;
 import java.rmi.RemoteException;
 
-public class AddEditViewController extends ViewController
-{
-  @FXML private TextField idField;
-  @FXML private ComboBox<String> typeDropdown;
-  @FXML private TextField nrOfBedsField;
+public class AddEditViewController extends ViewController{
+  public TextField idField;
+  public ComboBox typeDropdown;
+  public TextField nrOfBedsField;
+  public Label errorLabel;
   private Region root;
   private ViewHandler viewHandler;
   private AddEditViewModel viewModel;
 
-  @Override public void init()
-  {
+
+
+  @Override
+  public void init() {
     // Binding
-    idField.textProperty().bind(viewModel.roomNumberProperty());
-    typeDropdown.getItems().add("Single");
-    typeDropdown.getItems().add("Double");
-    typeDropdown.getItems().add("Family");
-    typeDropdown.getItems().add("Suite");
-    typeDropdown.getItems();
+    idField.setText(viewModel.getRoomId());
+    nrOfBedsField.textProperty().setValue(viewModel.numberOfBedsProperty().toString());
+    //nrOfBedsField.setText(viewModel.getNumberOfBeds());
+    typeDropdown.getItems().removeAll(typeDropdown.getItems());
+    typeDropdown.getItems().addAll(viewModel.getTypes());
+    errorLabel.textProperty().bind(viewModel.errorPropertyProperty());
   }
 
   /**
    * A void method initializing instance variables.
    *
-   * @param viewHandler      A ViewHandler object which will be used to set the instance variable.
-   * @param viewModelFactory A ViewModelFactory object which will be used to set the instance variable.
-   * @param root             A Region object which will be used to set the instance variable.
+   * @param viewHandler A ViewHandler object which will be used to set the instance variable.
+   * @param viewModelFactory  A ViewModelFactory object which will be used to set the instance variable.
+   * @param root        A Region object which will be used to set the instance variable.
    */
-  public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory,
-      Region root) throws RemoteException
+  public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory, Region root)
+      throws RemoteException
   {
     this.root = root;
     this.viewHandler = viewHandler;
@@ -46,18 +51,36 @@ public class AddEditViewController extends ViewController
     init();
   }
 
-  public Region getRoot()
-  {
+  @Override
+  public void reset() {
+
+  }
+
+
+  public void confirmButton() throws IOException {
+    JFrame jframe = new JFrame();
+    int result = JOptionPane.showConfirmDialog(jframe, "Are you sure you want to make changes?");
+
+    if (result == 0) {
+      viewModel.addRoom();
+      System.out.println("You confirmed.");
+      viewHandler.openView("RoomListView.fxml");
+    }
+    else if (result == 1)
+      System.out.println("You pressed NO");
+  }
+
+  @Override
+  public Region getRoot() {
     return root;
   }
 
-  @Override public void reset()
-  {
-
+  @Override
+  public ViewHandler getViewHandler() {
+    return viewHandler;
   }
 
-  @FXML private void confirmButton()
-  {
+  public void exitButton() throws IOException {
+    viewHandler.openView("RoomListView.fxml");
   }
-
 }
