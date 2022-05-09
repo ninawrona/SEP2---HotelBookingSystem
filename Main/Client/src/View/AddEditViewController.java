@@ -5,31 +5,39 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
+import utility.observer.javaobserver.UnnamedPropertyChangeSubject;
 import viewModel.AddEditViewModel;
+import viewModel.RoomTypes;
 import viewModel.ViewModelFactory;
 
 import javax.swing.*;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.IOException;
 import java.rmi.RemoteException;
 
-public class AddEditViewController extends ViewController{
+public class AddEditViewController extends ViewController {
     public TextField idField;
-    public ComboBox typeDropdown;
+    public ComboBox<RoomTypes> typeDropdown;
     public TextField nrOfBedsField;
+    public RoomTypes selectedType;
     public Label errorLabel;
     private Region root;
     private ViewHandler viewHandler;
     private AddEditViewModel viewModel;
-
+    private PropertyChangeSupport support;
 
 
     @Override
     public void init() {
         // Binding
-        idField.setText(viewModel.getRoomId());
-        nrOfBedsField.setText(viewModel.getNumberOfBeds());
+        idField.textProperty().bindBidirectional(viewModel.getRoomIdProperty());
+        nrOfBedsField.textProperty().bindBidirectional(viewModel.numberOfBedsProperty());
         typeDropdown.getItems().removeAll(typeDropdown.getItems());
-        typeDropdown.getItems().addAll(viewModel.getTypes());
+        typeDropdown.getItems().add(RoomTypes.FAMILY);
+        typeDropdown.getItems().add(RoomTypes.DOUBLE);
+        typeDropdown.getItems().add(RoomTypes.SINGLE);
+        selectedType = typeDropdown.getSelectionModel().getSelectedItem();
         errorLabel.textProperty().bind(viewModel.errorPropertyProperty());
     }
 
@@ -47,16 +55,20 @@ public class AddEditViewController extends ViewController{
         this.viewHandler = viewHandler;
         this.viewModelFactory = viewModelFactory;
         this.viewModel = viewModelFactory.getAddEditViewModel();
+        this.support = new PropertyChangeSupport(this);
         init();
     }
 
     @Override
     public void reset() {
-
+        viewModel.reset();
     }
 
 
     public void confirmButton() throws IOException {
+
+        viewModel.setType(selectedType);
+
         JFrame jframe = new JFrame();
         int result = JOptionPane.showConfirmDialog(jframe, "Are you sure you want to make changes?");
 
@@ -82,4 +94,9 @@ public class AddEditViewController extends ViewController{
     public void exitButton() throws IOException {
         viewHandler.openView("RoomListView.fxml");
     }
+
+    public RoomTypes getType(){
+        return selectedType;
+    }
+
 }

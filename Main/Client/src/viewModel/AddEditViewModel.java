@@ -25,12 +25,12 @@ public class AddEditViewModel {
 
         roomId = new SimpleStringProperty();
         nrOfBeds = new SimpleStringProperty();
+        type = null;
         types = new ArrayList<>();
 
         //List.of() makes a collection out of the simple Array.
         types.addAll(List.of(RoomTypes.values()));
         errorProperty = new SimpleStringProperty();
-        type = RoomTypes.FAMILY;
 
         reset();
         }
@@ -86,8 +86,17 @@ public class AddEditViewModel {
         model.editRoomInfo(roomId.get(), type, nrOfBeds.get());
     }
 
-    public ArrayList<RoomTypes> getTypes() {
-        return types;
+    public ArrayList<String> getTypes() {
+
+        ArrayList<String> list = new ArrayList<>();
+        for(int i = 0; i< types.size(); i++) {
+            list.add(types.get(i).toString());
+        }
+        return list;
+    }
+
+    public void setType(RoomTypes type){
+        this.type = type;
     }
 
     public String getErrorProperty() {
