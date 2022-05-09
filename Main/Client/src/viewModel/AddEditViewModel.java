@@ -4,6 +4,7 @@ import javafx.beans.property.*;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import model.Model;
+import model.Room;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -30,11 +31,27 @@ public class AddEditViewModel {
         types.addAll(List.of(RoomTypes.values()));
         errorProperty = new SimpleStringProperty();
         type = RoomTypes.FAMILY;
+
+        reset();
         }
 
 
     public void reset(){
+        errorProperty.set("");
 
+        if(viewState.isAdd()){
+            roomId = null;
+            nrOfBeds = null;
+            type = null;
+        }
+        else{
+            for(int i = 0; i<model.getAllRooms().size(); i++){
+                if(model.getAllRooms().get(i).getRoomId() == roomId.get()){
+                    model.getAllRooms().get(i).setType(type);
+                    model.getAllRooms().get(i).setNrOfBeds(nrOfBeds.get());
+                }
+            }
+        }
 
     }
 
@@ -61,6 +78,7 @@ public class AddEditViewModel {
 
     public void addRoom() {
         model.addRoom(roomId.get(), type, nrOfBeds.get());
+        System.out.println(model.getAllRooms());
     }
 
 

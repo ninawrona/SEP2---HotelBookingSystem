@@ -1,5 +1,7 @@
 package model;
 
+import viewModel.RoomTypes;
+
 import java.util.ArrayList;
 
 /**
@@ -21,13 +23,17 @@ public class RoomList
     createDummyData();
   }
 
+  public ArrayList<Room> getAll() {
+    return roomList;
+  }
+
   public void createDummyData()
   {
-    addRoom(new Room("1.01"));
-    addRoom(new Room("1.02"));
-    addRoom(new Room("1.03"));
-    addRoom(new Room("1.04"));
-    addRoom(new Room("1.05"));
+    addRoom(new Room("1.01", RoomTypes.FAMILY, "4"));
+    addRoom(new Room("1.02", RoomTypes.SINGLE, "1"));
+    addRoom(new Room("1.03", RoomTypes.DOUBLE, "1"));
+    addRoom(new Room("1.04", RoomTypes.DOUBLE, "2"));
+    addRoom(new Room("1.05", RoomTypes.FAMILY, "3"));
   }
 
   /**

@@ -1,5 +1,6 @@
 package View;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -8,6 +9,7 @@ import viewModel.AddEditViewModel;
 import viewModel.ViewModelFactory;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.rmi.RemoteException;
 
 public class AddEditViewController extends ViewController{
@@ -28,7 +30,7 @@ public class AddEditViewController extends ViewController{
         nrOfBedsField.setText(viewModel.getNumberOfBeds());
         typeDropdown.getItems().removeAll(typeDropdown.getItems());
         typeDropdown.getItems().addAll(viewModel.getTypes());
-        errorLabel.textProperty().bindBidirectional(viewModel.errorPropertyProperty());
+        errorLabel.textProperty().bind(viewModel.errorPropertyProperty());
     }
 
     /**
@@ -54,13 +56,15 @@ public class AddEditViewController extends ViewController{
     }
 
 
-    public void confirmButton() {
+    public void confirmButton() throws IOException {
         JFrame jframe = new JFrame();
         int result = JOptionPane.showConfirmDialog(jframe, "Are you sure you want to make changes?");
 
-        if (result == 0)
-            //    viewModel.addRoom();
-            System.out.println("You pressed YES");
+        if (result == 0) {
+            viewModel.addRoom();
+            System.out.println("You confirmed.");
+            viewHandler.openView("RoomListView.fxml");
+        }
         else if (result == 1)
             System.out.println("You pressed NO");
     }
@@ -73,5 +77,9 @@ public class AddEditViewController extends ViewController{
     @Override
     public ViewHandler getViewHandler() {
         return viewHandler;
+    }
+
+    public void exitButton() throws IOException {
+        viewHandler.openView("RoomListView.fxml");
     }
 }

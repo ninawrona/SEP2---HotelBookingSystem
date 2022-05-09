@@ -2,6 +2,7 @@ package model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import viewModel.RoomTypes;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,18 +12,18 @@ class RoomListTest
   RoomList testRoomListOneElement;
   RoomList testRoomList3Elements;
   RoomList testRoomList7Elements;
-  Room room1 = new Room("Room1");
-  Room room2 = new Room("Room2");
-  Room room3 = new Room("Room3");
-  Room room4 = new Room("Room4");
-  Room room5 = new Room("Room5");
-  Room room6 = new Room("Room6");
-  Room room7 = new Room("Room7");
-  Room room8 = new Room("Room8");
-  Room room9 = new Room("Room9");
-  Room room10 = new Room("Room10");
-  Room room11 = new Room("Room11");
-  Room room12 = new Room("Room12");
+  Room room1 = new Room("Room1", RoomTypes.DOUBLE, "2");
+  Room room2 = new Room("Room2", RoomTypes.DOUBLE, "2");
+  Room room3 = new Room("Room3", RoomTypes.DOUBLE, "2");
+  Room room4 = new Room("Room4", RoomTypes.DOUBLE, "2");
+  Room room5 = new Room("Room5", RoomTypes.DOUBLE, "2");
+  Room room6 = new Room("Room6", RoomTypes.DOUBLE, "2");
+  Room room7 = new Room("Room7", RoomTypes.DOUBLE, "2");
+  Room room8 = new Room("Room8", RoomTypes.DOUBLE, "2");
+  Room room9 = new Room("Room9", RoomTypes.DOUBLE, "2");
+  Room room10 = new Room("Room10", RoomTypes.DOUBLE, "2");
+  Room room11 = new Room("Room11", RoomTypes.DOUBLE, "2");
+  Room room12 = new Room("Room12", RoomTypes.DOUBLE, "2");
 
   @BeforeEach void setUp()
   {

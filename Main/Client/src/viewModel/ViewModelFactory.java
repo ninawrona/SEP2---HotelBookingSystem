@@ -10,11 +10,12 @@ public class ViewModelFactory {
     private AddEditViewModel addEditViewModel;
 
     public ViewModelFactory(Model model){
+        ViewState state = new ViewState();
         TemporaryInformation tempInfo = new TemporaryInformation();
         this.reservationViewModel = new ReservationViewModel(model,tempInfo);
         this.guestInformationViewModel = new GuestInformationViewModel(model,tempInfo);
-        this.roomListViewModel = new RoomListViewModel(model, tempInfo);
-        this.addEditViewModel = new AddEditViewModel(model, new ViewState());
+        this.roomListViewModel = new RoomListViewModel(model, state);
+        this.addEditViewModel = new AddEditViewModel(model, state);
     }
 
     public GuestInformationViewModel getGuestInformationViewModel(){

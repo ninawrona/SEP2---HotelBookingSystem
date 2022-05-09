@@ -65,7 +65,8 @@
       </VBox>
       <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#confirmButton" prefHeight="32.0" prefWidth="119.0" text="Confirm">
+            <Button mnemonicParsing="false" onAction="#exitButton" prefHeight="30.0" prefWidth="120.0" text="Exit" />
+            <Button mnemonicParsing="false" onAction="#confirmButton" prefHeight="30.0" prefWidth="120.0" text="Confirm">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>

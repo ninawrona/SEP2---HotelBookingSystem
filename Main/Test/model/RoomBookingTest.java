@@ -2,6 +2,7 @@ package model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import viewModel.RoomTypes;
 
 import java.time.LocalDate;
 
@@ -11,9 +12,9 @@ class RoomBookingTest
 {
   LocalDate today = LocalDate.now();
   LocalDate end = today.plusDays(5);
-  Room testRoom = new Room("TestRoom101");
-  Room testRoom2 = new Room("TestRoom102");
-  Room testRoom3 = new Room("TestRoom103");
+  Room testRoom = new Room("TestRoom101", RoomTypes.SINGLE, "2");
+  Room testRoom2 = new Room("TestRoom102", RoomTypes.SINGLE, "2");
+  Room testRoom3 = new Room("TestRoom103", RoomTypes.SINGLE, "2");
   Guest guest = new Guest("Bob", "Builder", "bob@builder.test", 12345678);
   Guest guest2 = new Guest("Wendy", "Worker", "wendy@worker.test", 87654321);
   Guest guest3 = new Guest("Allan", "Test", "allan@test.test", 55555555);

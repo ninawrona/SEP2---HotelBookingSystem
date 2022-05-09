@@ -14,10 +14,12 @@ public class RoomListViewController extends ViewController{
 
     public void addButton() throws IOException {
         viewHandler.openView("AddEditView.fxml");
+        viewModel.setAdd();
     }
 
     public void editButton() throws IOException {
         viewHandler.openView("AddEditView.fxml");
+        viewModel.setEdit();
     }
 
     public void removeButton() {
@@ -48,5 +50,14 @@ public class RoomListViewController extends ViewController{
     @Override
     public void reset() {
 
+    }
+
+    @Override
+    public Region getRoot() {
+        return root;
+    }
+
+    public RoomListViewModel getViewModel() {
+        return viewModel;
     }
 }

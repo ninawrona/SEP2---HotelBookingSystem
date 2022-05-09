@@ -2,12 +2,13 @@ package model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import viewModel.RoomTypes;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class RoomTest
 {
-  Room testRoom = new Room("TestRoom");
+  Room testRoom = new Room("TestRoom", RoomTypes.DOUBLE, "2");
 
   @BeforeEach void setUp()
   {

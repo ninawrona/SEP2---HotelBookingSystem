@@ -1,5 +1,6 @@
 package model;
 
+import javafx.collections.ObservableArray;
 import viewModel.RoomTypes;
 
 import java.time.LocalDate;
@@ -12,4 +13,5 @@ public interface Model
   boolean isBookingAllowed(String roomId, LocalDate startDate, LocalDate endDate);
   boolean editRoomInfo(String roomId, RoomTypes type, String nrOfBeds);
   boolean addRoom(String roomId, RoomTypes type, String nrBeds);
+  ArrayList<Room> getAllRooms();
 }

@@ -93,6 +93,11 @@ public class ModelManager implements Model
     return false;
   }
 
+  @Override
+  public ArrayList<Room> getAllRooms() {
+    return roomList.getAll();
+  }
+
   /**
    * A method that is meant for booking a room.
    *
