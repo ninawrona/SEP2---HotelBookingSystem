@@ -16,6 +16,12 @@ import java.beans.PropertyChangeSupport;
 import java.io.IOException;
 import java.rmi.RemoteException;
 
+/**
+ * A class creating an AddEditViewController object.
+ *
+ * @author Group 5
+ * @version 09/05/2022
+ */
 public class AddEditViewController extends ViewController {
     public TextField idField;
     public ComboBox<RoomTypes> typeDropdown;
@@ -26,7 +32,10 @@ public class AddEditViewController extends ViewController {
     private ViewHandler viewHandler;
     private AddEditViewModel viewModel;
 
-
+    /**
+     * A none argument, void method binging instance variables to
+     * an AddEditViewController variables.
+     */
     @Override
     public void init() {
         // Binding
@@ -57,12 +66,19 @@ public class AddEditViewController extends ViewController {
         init();
     }
 
+    /**
+     * A non argument method that calls the reset() method from viewModel.
+     */
     @Override
     public void reset() {
         viewModel.reset();
     }
 
-
+    /**
+     * A non argument method that creates s confirmation window changed in a window data
+     * and creates a new room, corrects existing room or goes back
+     * to a Room Details view.
+     */
     public void confirmButton() throws IOException {
 
         viewModel.setType(selectedType);
@@ -79,20 +95,36 @@ public class AddEditViewController extends ViewController {
             System.out.println("You pressed NO");
     }
 
+    /**
+     * A getter method returning a Region object.
+     *
+     * @return A Region object called root.
+     */
     @Override
     public Region getRoot() {
         return root;
     }
 
+    /**
+     * A getter method returning a ViewHandler object
+     * @return A ViewHandler object called viewHandler.
+     */
     @Override
     public ViewHandler getViewHandler() {
         return viewHandler;
     }
 
+    /**
+     * A void method opening the RoomList view.
+     */
     public void exitButton() throws IOException {
         viewHandler.openView("RoomListView.fxml");
     }
 
+    /**
+     * A getter method returning a RoomTypes object
+     * @return A RoomTypes object called selectedType.
+     */
     public RoomTypes getType(){
         return selectedType;
     }

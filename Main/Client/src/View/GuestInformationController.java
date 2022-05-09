@@ -27,7 +27,7 @@ public class GuestInformationController extends ViewController
     private ViewHandler viewHandler;
 
     /**
-     * A none argument, void method initializing instance variables.
+     * A none argument, void method binging instance variables to a GuestInformationViewModel variables.
      */
     @Override
     public void init() {
